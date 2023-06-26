@@ -18,7 +18,6 @@ const Header = () => {
                             <Link className="nav-link" to="/searchmovie">Search Movie</Link>
                             <Link className="nav-link" to="/">New Movies</Link>
                             <Link className="nav-link" to="/">New Series</Link>
-                            
                         </div>
                     </div>
                 </div>
