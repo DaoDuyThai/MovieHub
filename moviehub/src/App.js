@@ -27,7 +27,8 @@ function App() {
           {/* <Route path="/" element={<ActiveDeactiveAccount />} /> */}
         </Routes>
       </BrowserRouter>
-      <Footer/>
+      <span style={{position:'fixed', width:"100%", bottom:"0px"}}><Footer/></span>
+      
     </>
 
   );
