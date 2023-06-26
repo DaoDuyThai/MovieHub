@@ -11,11 +11,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      <Header/>
+      
       <BrowserRouter>
+      <Header/>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/searchmovie" element={<SearchMovie />} />
+          <Route path="/searchmovie/:id" element={<SearchMovie />} />
           <Route path="/moviedetails" element={<MovieDetails />} />
           <Route path="/movieplayer" element={<MoviePlayer />} />
           {/* <Route path="/" element={<Login />} /> */}
@@ -26,8 +27,9 @@ function App() {
           {/* <Route path="/" element={<Favourites />} /> */}
           {/* <Route path="/" element={<ActiveDeactiveAccount />} /> */}
         </Routes>
+        <Footer/>
       </BrowserRouter>
-      <Footer/>
+      
       
     </>
 

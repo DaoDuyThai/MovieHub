@@ -3,6 +3,7 @@
 const MovieDetails = () => {
     return (
         <>
+        hello
         </>
     );
 }

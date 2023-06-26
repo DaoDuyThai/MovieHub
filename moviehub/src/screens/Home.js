@@ -74,19 +74,7 @@ const Home = () => {
 
     return (
         <div className="container-fluid">
-            {/* searchbox start */}
-            <div class="search-box">
-                <form action="https://mentoring.dreamguystech.com/html/template/search.html">
-                    <div class="form-group search-info">
-                        <input type="text" class="form-control"
-                            placeholder="Search movie names, genre, actor, etc"></input>
-                    </div>
-                    <button type="submit" class="btn btn-primary search-btn"><i></i> <span>Search</span></button>
-                </form>
-            </div>
-            {/* searchbox end */}
-
-
+            <br />
             {/* Popular Movies start */}
             <section class="section popular-courses">
                 <div class="container">
@@ -128,7 +116,7 @@ const Home = () => {
                         {newMovies.map((movie) => (
                             <Col md={3}>
 
-                                <div data-aos="fade-up" style={{ scale: "80%" }}>
+                                <div data-aos="fade-up" style={{ scale: "90%" }}>
                                     <div class="movie">
                                         <div class="movie-img" >
                                             <a href="profile.html">
@@ -163,7 +151,7 @@ const Home = () => {
                         {newSeries.map((movie) => (
                             <Col md={3}>
 
-                                <div data-aos="fade-up" style={{ scale: "80%" }}>
+                                <div data-aos="fade-up" style={{ scale: "90%" }}>
                                     <div class="movie">
                                         <div class="movie-img" >
                                             <a href="profile.html">

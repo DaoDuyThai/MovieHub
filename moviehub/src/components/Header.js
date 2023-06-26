@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header = () => {
     return (
-        <Router> {/* Wrap your component tree with the Router component */}
+        
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
                     <Link className="navbar-brand text-light" to="/">Movie<span className='text-warning'>Hub</span></Link>
@@ -14,9 +14,9 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link className="nav-link " to="/"><button className='btn btn-outline-warning'>Home</button></Link>
-                            <Link className="nav-link " to="/"><button className='btn btn-outline-warning'>New Movies</button></Link>
-                            <Link className="nav-link " to="/"><button className='btn btn-outline-warning'>New Series</button></Link>
+                            <div className="nav-link " to="/"><button className='btn btn-outline-warning'>Home</button></div>
+                            <div className="nav-link " to="/"><button className='btn btn-outline-warning'>New Movies</button></div>
+                            <div className="nav-link " to="/"><button className='btn btn-outline-warning'>New Series</button></div>
                         </div>
                     </div>
                     <form class="d-flex">
@@ -25,7 +25,7 @@ const Header = () => {
                     </form>
                 </div>
             </nav>
-        </Router>
+        
     );
 };
 
