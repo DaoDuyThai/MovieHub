@@ -7,19 +7,22 @@ const Header = () => {
         <Router> {/* Wrap your component tree with the Router component */}
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Movie App</Link>
+                    <Link className="navbar-brand text-light" to="/">Movie<span className='text-warning'>Hub</span></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <Link className="nav-link" aria-current="page" to="/">Home</Link>
-                            <Link className="nav-link" to="/searchmovie">Search Movie</Link>
-                            <Link className="nav-link" to="/">New Movies</Link>
-                            <Link className="nav-link" to="/">New Series</Link>
+                            <Link className="nav-link " to="/"><button className='btn btn-outline-warning'>Home</button></Link>
+                            <Link className="nav-link " to="/"><button className='btn btn-outline-warning'>New Movies</button></Link>
+                            <Link className="nav-link " to="/"><button className='btn btn-outline-warning'>New Series</button></Link>
                         </div>
                     </div>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+                        <button class="btn btn-outline-warning" type="submit">Search</button>
+                    </form>
                 </div>
             </nav>
         </Router>
