@@ -7,7 +7,7 @@ const Header = () => {
         
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand text-light" to="/">Movie<span className='text-warning'>Hub</span></Link>
+                    <Link className="navbar-brand text-light" to="/">MOVIE<span className='text-warning'>HUB</span></Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
                         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
