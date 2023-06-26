@@ -1,5 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Container, Row, Col } from 'react-bootstrap';
 import Home from "./screens/Home";
 import SearchMovie from "./screens/SearchMovie";
 import MovieDetails from "./screens/MovieDetails";
@@ -11,12 +12,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
-      
+
       <BrowserRouter>
-      <Header/>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/searchmovie/:id" element={<SearchMovie />} />
+          <Route path="/search" element={<SearchMovie />} />
           <Route path="/moviedetails" element={<MovieDetails />} />
           <Route path="/movieplayer" element={<MoviePlayer />} />
           {/* <Route path="/" element={<Login />} /> */}
@@ -27,10 +28,10 @@ function App() {
           {/* <Route path="/" element={<Favourites />} /> */}
           {/* <Route path="/" element={<ActiveDeactiveAccount />} /> */}
         </Routes>
-        <Footer/>
+        <Footer />
       </BrowserRouter>
-      
-      
+
+
     </>
 
   );

@@ -45,7 +45,7 @@ const Home = () => {
 
     //get new series
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/discover/tv?air_date.lte=${today}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=10&sort_by=primary_release_date.desc&with_origin_country=US`, options)
+        fetch(`https://api.themoviedb.org/3/discover/tv?air_date.lte=${today}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=9&sort_by=primary_release_date.desc&with_origin_country=US`, options)
             .then(response => response.json())
             .then(data => setNewSeries(data.results))
             .catch(err => console.error(err));
@@ -155,7 +155,12 @@ const Home = () => {
                                     <div class="movie">
                                         <div class="movie-img" >
                                             <a href="profile.html">
-                                                <img class="img-fluid" alt src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} ></img>
+                                                <img class="img-fluid" alt src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                                    onError={(e) => {
+                                                        e.target.src = 'https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg' // some replacement image
+                                                    }} ></img>
+
+
                                             </a>
                                         </div>
                                         <div class="movie-content">
@@ -171,7 +176,7 @@ const Home = () => {
 
 
                             </Col>
-                            ))}
+                        ))}
                     </Row>
 
 
