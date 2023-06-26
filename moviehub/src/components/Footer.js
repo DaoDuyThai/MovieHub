@@ -15,4 +15,3 @@ const Footer = () => {
     );
 }
 export default Footer;
-ádadas
