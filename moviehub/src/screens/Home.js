@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+aaaa
 
 const Home = () => {
     const [popularMovies, setPopularMovies] = useState([]);
