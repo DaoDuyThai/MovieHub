@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Header = () => {
@@ -17,6 +17,7 @@ const Header = () => {
                             <div className="nav-link " to="/"><button className='btn btn-outline-warning'>Home</button></div>
                             <div className="nav-link " to="/"><button className='btn btn-outline-warning'>New Movies</button></div>
                             <div className="nav-link " to="/"><button className='btn btn-outline-warning'>New Series</button></div>
+                            <div className="nav-link " to="/"><button className='btn btn-outline-warning' ><Link to ="/admin" style={{color: "#ffc107", textDecoration: "none"}}>Admin</Link></button></div>
                         </div>
                     </div>
                     <form class="d-flex">

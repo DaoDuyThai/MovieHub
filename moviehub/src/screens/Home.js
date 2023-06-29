@@ -34,7 +34,7 @@ const Home = () => {
 
     }, []);
 
-    //get new movies
+    //get new movies    
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US%2C%20vi-VN&page=5&primary_release_date.lte=${today}&sort_by=primary_release_date.desc&with_origin_country=US`, options)
             .then(response => response.json())
@@ -81,7 +81,7 @@ const Home = () => {
                     <div class="section-header text-center aos" data-aos="fade-up">
                         <h2>Popular Movies</h2>
                     </div>
-                    {/* popular movies carousel start    */}
+                    {/* popular movies carousel start */}
                     <Carousel responsive={responsive}>
                         {popularMovies.map((movie) => (
                             <div data-aos="fade-up" style={{ scale: "80%" }}>

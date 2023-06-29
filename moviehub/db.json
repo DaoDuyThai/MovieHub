@@ -1,0 +1,76 @@
+{
+  "account": [
+    {
+      "id": 1,
+      "name": "Nguyễn Trung Hiếu",
+      "email": "hieu2224@gmail.com",
+      "password": "12345678",
+      "gender": "Nam",
+      "role": 1,
+      "active": true
+    },
+    {
+      "id": 2,
+      "name": "Nguyễn Thanh Trà",
+      "email": "thanhtra@gmail.com",
+      "password": "12345678",
+      "gender": "Nữ",
+      "role": 1,
+      "active": true
+    },
+    {
+      "id": 3,
+      "name": "MCK",
+      "email": "nger@gmail.com",
+      "password": "12345678",
+      "gender": "Nam",
+      "role": 1,
+      "active": true
+    },
+    {
+      "id": 4,
+      "name": "Trương Vô Kị",
+      "email": "voki@gmail.com",
+      "password": "12345678",
+      "gender": "Nữ",
+      "role": 1,
+      "active": true
+    },
+    {
+      "id": 5,
+      "name": "Hiếu",
+      "email": "hieu",
+      "password": "12345678",
+      "gender": "Nam",
+      "role": 0,
+      "active": true
+    },
+    {
+      "id": 6,
+      "name": "Tra",
+      "email": "tra",
+      "password": "12345678",
+      "gender": "Nữ",
+      "role": 0,
+      "active": true
+    },
+    {
+      "id": 7,
+      "name": "Hung",
+      "email": "hung",
+      "password": "12345678",
+      "gender": "Nam",
+      "role": 0,
+      "active": true
+    },
+    {
+      "id": 8,
+      "name": "Tu",
+      "email": "tu",
+      "password": "12345678",
+      "gender": "Nữ",
+      "role": 0,
+      "active": true
+    }
+  ]
+}
