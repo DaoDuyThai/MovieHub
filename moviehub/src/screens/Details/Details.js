@@ -1,10 +1,10 @@
 
 
-const MovieDetails = () => {
+const Details = () => {
     return (
         <>
         hello
         </>
     );
 }
-export default MovieDetails;
+export default Details;

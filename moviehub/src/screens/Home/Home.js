@@ -1,9 +1,7 @@
-import { useEffect, useState } from 'react'
-import { Row, Col } from 'react-bootstrap'
-import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import HomeContent from '../../components/HomeContent/HomeContent';
 import Header from '../../components/Header/Header';
+import Footer from '../../components/Footer/Footer';
 
 const Home = () => {
 
@@ -12,6 +10,7 @@ const Home = () => {
         <>
             <Header />
             <HomeContent />
+            <Footer />
         </>
 
     );

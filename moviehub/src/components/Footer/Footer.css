@@ -1,13 +1,11 @@
 .nav-link-text {
     font-size: 18px;
-    /* Set the initial font size */
     color: white;
     font-weight: bold;
 }
 
 .nav-link-text:hover {
     color: #FFC107;
-    /* Set the increased font size on hover */
 }
 
 .button-left {

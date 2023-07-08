@@ -57,11 +57,11 @@ const HomeContent = () => {
     const responsive = {
         superLargeDesktop: {
             breakpoint: { max: 4000, min: 3000 },
-            items: 5
+            items: 9
         },
         desktop: {
             breakpoint: { max: 3000, min: 1024 },
-            items: 3
+            items: 6
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
@@ -73,32 +73,64 @@ const HomeContent = () => {
         }
     };
 
+
+
     return (
         <div className="container-fluid home-content-container" id='container'>
-            <br />
+
+            {/* search start */}
+            <div className='search-container'>
+                <h1 style={{ fontWeight: 'bold' }}>Welcome to Movie<span className='text-warning'>Hub</span></h1>
+                <h3 style={{ fontWeight: 'bold' }}>Millions of movies, TV shows and people to discover. Explore now.</h3>
+                <br></br>
+                <form className='form' style={{ width: '80%' }}>
+                    <div class="input-group">
+                        <input type="text" class="form-control" style={{ backgroundColor: "#0e1f23", color: "white" }} placeholder="Search for movies, series, episodes..." />
+                        <div class="input-group-append">
+                            <button class="btn btn-warning" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            {/* search end  */}
+
+            {/* test start */}
+
+
+            {/* test end */}
+
+
             {/* Popular Movies start */}
-            <section class="section popular-courses">
+            <section class="section popular-courses" style={{ marginTop: "30px" }}>
                 <div class="container">
-                    <div class="section-header text-center aos" data-aos="fade-up">
-                        <h2>Popular Movies</h2>
+                    <div class="section-header aos" data-aos="fade-up">
+                        <h2 className='text-warning'>Trending Movies</h2>
                     </div>
                     {/* popular movies carousel start */}
                     <Carousel responsive={responsive}>
                         {
                             popularMovies.map((movie) => (
-                                <div data-aos="fade-up" style={{ scale: "80%" }}>
+                                <div data-aos="fade-up" style={{ scale: "90%" }} >
                                     <div class="movie">
                                         <div class="movie-img" >
                                             <a href="profile.html">
-                                                <img class="img-fluid" alt src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} ></img>
+                                                <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                    e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
+                                                }}></img>
                                             </a>
                                         </div>
-                                        <div class="movie-content">
-                                            <h3 class="title"><a href="profile.html">{movie.original_title}</a></h3>
-                                            <div class="author-info">
-                                                <div class="author-name">
-                                                    IMDB: {movie.vote_average}
-                                                </div>
+                                        <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                            <h5 class="text-warning">
+                                                <a class="text-warning" href="/movie-details">{movie.original_title}</a>
+                                            </h5>
+                                        </div>
+                                        <div class="bottom">
+                                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
+                                                <div><i class="far fa-clock"></i> {movie.release_date}</div>
+                                                <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -109,29 +141,34 @@ const HomeContent = () => {
                     {/* popular movies carousel end  */}
                     {/* Popular Movies end * */}
 
-
-                    <div class="section-header text-center aos" data-aos="fade-up">
-                        <h2>New Movies</h2>
+                    <br></br>
+                    <div class="section-header aos" data-aos="fade-up">
+                        <h2 className='text-warning'>New Movies</h2>
                     </div>
 
                     {/* New Movies start */}
-                    <Row>
+                    <Row className='newMovie'>
                         {newMovies.map((movie) => (
                             <Col md={3}>
 
-                                <div data-aos="fade-up" style={{ scale: "90%" }}>
+                                <div data-aos="fade-up" style={{ scale: "90%" }} >
                                     <div class="movie">
                                         <div class="movie-img" >
                                             <a href="profile.html">
-                                                <img class="img-fluid" alt src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} ></img>
+                                                <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                    e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
+                                                }}></img>
                                             </a>
                                         </div>
-                                        <div class="movie-content">
-                                            <h3 class="title"><a href="profile.html">{movie.original_title}</a></h3>
-                                            <div class="author-info">
-                                                <div class="author-name">
-                                                    IMDB: {movie.vote_average}
-                                                </div>
+                                        <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                            <h5 class="text-warning">
+                                                <a class="text-warning" href="/movie-details">{movie.original_title}</a>
+                                            </h5>
+                                        </div>
+                                        <div class="bottom">
+                                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
+                                                <div><i class="far fa-clock"></i> {movie.release_date}</div>
+                                                <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -144,45 +181,43 @@ const HomeContent = () => {
                     {/* New Movies end */}
 
 
-                    <div class="section-header text-center aos" data-aos="fade-up">
-                        <h2>New Series</h2>
-                    </div>
+                    
 
 
                     {/* New series start */}
+                    <br></br>
+                    <div class="section-header aos" data-aos="fade-up">
+                        <h2 className='text-warning'>New TV Shows</h2>
+                    </div>
                     <Row>
                         {newSeries.map((movie) => (
-                            <Col md={3}>
+                            <Col md={4}>
 
-                                <div data-aos="fade-up" style={{ scale: "90%" }}>
+                                <div data-aos="fade-up" style={{ scale: "90%" }} >
                                     <div class="movie">
                                         <div class="movie-img" >
                                             <a href="profile.html">
-                                                <img class="img-fluid" alt src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                                                    onError={(e) => {
-                                                        e.target.src = 'https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg' // some replacement image
-                                                    }} ></img>
-
-
+                                                <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                    e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
+                                                }}></img>
                                             </a>
                                         </div>
-                                        <div class="movie-content">
-                                            <h3 class="title"><a href="profile.html">{movie.original_title}</a></h3>
-                                            <div class="author-info">
-                                                <div class="author-name">
-                                                    IMDB: {movie.vote_average}
-                                                </div>
+                                        <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                            <h5 class="text-warning">
+                                                <a class="text-warning" href="/movie-details">{movie.original_title}</a>
+                                            </h5>
+                                        </div>
+                                        <div class="bottom">
+                                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
+                                                <div><i class="far fa-clock"></i> {movie.release_date}</div>
+                                                <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-
                             </Col>
                         ))}
                     </Row>
-
-
                     {/* New series end */}
 
 

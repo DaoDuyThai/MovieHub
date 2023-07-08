@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { Container, Row, Col } from 'react-bootstrap';
 import Home from "./screens/Home/Home";
 import SearchMovie from "./screens/SearchMovie";
-import MovieDetails from "./screens/MovieDetails";
+import Details from "./screens/Details/Details";
 import MoviePlayer from "./screens/MoviePlayer";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchMovie />} />
-          <Route path="/moviedetails" element={<MovieDetails />} />
+          <Route path="/details:id" element={<Details />} />
           <Route path="/movieplayer" element={<MoviePlayer />} />
           {/* <Route path="/" element={<Login />} /> */}
           {/* <Route path="/" element={<ForgotPassword />} /> */}
@@ -32,7 +32,6 @@ function App() {
           <Route path="/admin" element={<ActiveDeactiveAccount />} />
           {/* )} */}
         </Routes>
-        <Footer />
       </BrowserRouter>
 
 
