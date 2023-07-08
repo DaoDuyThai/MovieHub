@@ -1,0 +1,9 @@
+.home-content-container {
+    position: relative;
+    background-color: black;
+    background-image: url("/public/assets/img/Background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    backdrop-filter: blur(100px); /* Adjust the blur radius as needed */
+}

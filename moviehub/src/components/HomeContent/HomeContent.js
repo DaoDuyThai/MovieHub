@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import './HomeContent.css';
 
-const Home = () => {
+const HomeContent = () => {
     const [popularMovies, setPopularMovies] = useState([]);
     const [newMovies, setNewMovies] = useState([]);
     const [newSeries, setNewSeries] = useState([]);
@@ -73,7 +74,7 @@ const Home = () => {
     };
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid home-content-container" id='container'>
             <br />
             {/* Popular Movies start */}
             <section class="section popular-courses">
@@ -83,25 +84,27 @@ const Home = () => {
                     </div>
                     {/* popular movies carousel start */}
                     <Carousel responsive={responsive}>
-                        {popularMovies.map((movie) => (
-                            <div data-aos="fade-up" style={{ scale: "80%" }}>
-                                <div class="movie">
-                                    <div class="movie-img" >
-                                        <a href="profile.html">
-                                            <img class="img-fluid" alt src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} ></img>
-                                        </a>
-                                    </div>
-                                    <div class="movie-content">
-                                        <h3 class="title"><a href="profile.html">{movie.original_title}</a></h3>
-                                        <div class="author-info">
-                                            <div class="author-name">
-                                                IMDB: {movie.vote_average}
+                        {
+                            popularMovies.map((movie) => (
+                                <div data-aos="fade-up" style={{ scale: "80%" }}>
+                                    <div class="movie">
+                                        <div class="movie-img" >
+                                            <a href="profile.html">
+                                                <img class="img-fluid" alt src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} ></img>
+                                            </a>
+                                        </div>
+                                        <div class="movie-content">
+                                            <h3 class="title"><a href="profile.html">{movie.original_title}</a></h3>
+                                            <div class="author-info">
+                                                <div class="author-name">
+                                                    IMDB: {movie.vote_average}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))
+                        }
                     </Carousel>
                     {/* popular movies carousel end  */}
                     {/* Popular Movies end * */}
@@ -191,4 +194,4 @@ const Home = () => {
 
     );
 }
-export default Home;
+export default HomeContent;
