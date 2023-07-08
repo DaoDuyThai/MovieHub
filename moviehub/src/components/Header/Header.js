@@ -35,15 +35,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="d-flex align-items-center">
-                    {showSearch ? (
-                        <form className="form-inline ">
-                            <input className="form-control me-5" type="search" placeholder="Search for a movie, tv show, ..." aria-label="Search" />
-                        </form>
-                    ) : (
-                        <button className="btn btn-outline-warning btn-no-outline mx-2" onClick={handleSearchClick}>
-                            <span className="fa fa-search"></span>
-                        </button>
-                    )}
+                    
 
                     <Link className="nav-link" to="/login">
                         <button className='btn btn-outline-warning button-left'>Sign In</button>

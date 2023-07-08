@@ -80,47 +80,52 @@ const SearchContent = ({ query }) => {
 
 
             {/* movies start */}
-            <Row className='newMovie'>
-                {movies.map((movie) => (
-                    <Col md={3}>
-
-                        <div data-aos="fade-up" style={{ scale: "90%" }} >
-                            <div class="movie">
-                                <div class="movie-img" >
-                                    <Link to={`/details/${movie.id}`}>
-                                        <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
-                                            e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
-                                        }}></img>
-                                    </Link>
-                                </div>
-                                <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
-                                    <h5 class="text-warning">
-                                        <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
-                                    </h5>
-                                </div>
-                                <div class="bottom">
-                                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
-                                        <div><i class="far fa-clock"></i> {movie.release_date}</div>
-                                        <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
+            <Row>
+                <Col md={3}></Col>
+                <Col md={9}><Row className=''>
+                    {movies.map((movie) => (
+                        <Col md={3}>
+                            <br></br>
+                            <div data-aos="fade-up" style={{ scale: "90%" }} >
+                                <div class="movie">
+                                    <div class="movie-img" >
+                                        <Link to={`/details/${movie.id}`}>
+                                            <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
+                                            }}></img>
+                                        </Link>
+                                    </div>
+                                    <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                        <h5 class="text-warning">
+                                            <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
+                                        </h5>
+                                    </div>
+                                    <div class="bottom">
+                                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
+                                            <div><i class="far fa-clock"></i> {movie.release_date}</div>
+                                            <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
-                    </Col>
-                ))}
+                        </Col>
+                    ))}
+                </Row></Col>
+
             </Row>
+
             {/* movies end */}
 
-            <center style={{padding:"30px"}}>
+            <center style={{ padding: "30px" }}>
                 <div className="pagination-buttons">
                     <Button variant="warning" onClick={handleDecreasePage} disabled={page === 1}>
-                        Back   
+                        Back
                     </Button>
-                    <span className="page-number" style={{fontWeight:"bold"}}>   {page}   </span>
+                    <span className="page-number" style={{ fontWeight: "bold" }}>   {page}   </span>
                     <Button variant="warning" onClick={handleIncreasePage}>
-                           Next
+                        Next
                     </Button>
                 </div>
             </center>
