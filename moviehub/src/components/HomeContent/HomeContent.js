@@ -3,6 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import './HomeContent.css';
+import { Link } from 'react-router-dom';
 
 const HomeContent = () => {
     const [popularMovies, setPopularMovies] = useState([]);
@@ -116,15 +117,15 @@ const HomeContent = () => {
                                 <div data-aos="fade-up" style={{ scale: "90%" }} >
                                     <div class="movie">
                                         <div class="movie-img" >
-                                            <a href="profile.html">
+                                            <Link to={`/details/${movie.id}`}>
                                                 <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
                                                     e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
                                                 }}></img>
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
                                             <h5 class="text-warning">
-                                                <a class="text-warning" href="/movie-details">{movie.original_title}</a>
+                                                <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
                                             </h5>
                                         </div>
                                         <div class="bottom">
@@ -154,15 +155,15 @@ const HomeContent = () => {
                                 <div data-aos="fade-up" style={{ scale: "90%" }} >
                                     <div class="movie">
                                         <div class="movie-img" >
-                                            <a href="profile.html">
+                                            <Link to={`/details/${movie.id}`}>
                                                 <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
                                                     e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
                                                 }}></img>
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
                                             <h5 class="text-warning">
-                                                <a class="text-warning" href="/movie-details">{movie.original_title}</a>
+                                                <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
                                             </h5>
                                         </div>
                                         <div class="bottom">
@@ -181,7 +182,7 @@ const HomeContent = () => {
                     {/* New Movies end */}
 
 
-                    
+
 
 
                     {/* New series start */}
@@ -196,15 +197,15 @@ const HomeContent = () => {
                                 <div data-aos="fade-up" style={{ scale: "90%" }} >
                                     <div class="movie">
                                         <div class="movie-img" >
-                                            <a href="profile.html">
+                                            <Link to={`/details/${movie.id}`}>
                                                 <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
                                                     e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
                                                 }}></img>
-                                            </a>
+                                            </Link>
                                         </div>
                                         <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
                                             <h5 class="text-warning">
-                                                <a class="text-warning" href="/movie-details">{movie.original_title}</a>
+                                                <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
                                             </h5>
                                         </div>
                                         <div class="bottom">

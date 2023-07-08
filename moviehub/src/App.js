@@ -5,10 +5,9 @@ import Home from "./screens/Home/Home";
 import SearchMovie from "./screens/SearchMovie";
 import Details from "./screens/Details/Details";
 import MoviePlayer from "./screens/MoviePlayer";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import ActiveDeactiveAccount from './screens/ActiveDeactiveAccount';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
 
 function App() {
   // const [account, setAccount] = useState();
@@ -20,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/search" element={<SearchMovie />} />
-          <Route path="/details:id" element={<Details />} />
+          <Route path="/details/:id" element={<Details />} />
           <Route path="/movieplayer" element={<MoviePlayer />} />
           {/* <Route path="/" element={<Login />} /> */}
           {/* <Route path="/" element={<ForgotPassword />} /> */}

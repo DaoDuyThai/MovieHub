@@ -6,6 +6,7 @@ import './Footer.css'; // Import custom CSS file for styling
 const Footer = () => {
     return (
         <footer className="footer navbar-background">
+            <br></br>
             <div className="container">
                 <div className="row">
                     <div className="col-md-3">
