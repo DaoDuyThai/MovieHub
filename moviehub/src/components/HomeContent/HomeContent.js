@@ -9,6 +9,7 @@ const HomeContent = () => {
     const [popularMovies, setPopularMovies] = useState([]);
     const [newMovies, setNewMovies] = useState([]);
     const [newSeries, setNewSeries] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     //get today date format
     var today = new Date();
@@ -74,6 +75,13 @@ const HomeContent = () => {
         }
     };
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+        if (searchQuery.trim() !== '') {
+            window.location.href = `/search/${searchQuery}`;
+        }
+    };
+
 
 
     return (
@@ -84,24 +92,27 @@ const HomeContent = () => {
                 <h1 style={{ fontWeight: 'bold' }}>Welcome to Movie<span className='text-warning'>Hub</span></h1>
                 <h3 style={{ fontWeight: 'bold' }}>Millions of movies, TV shows and people to discover. Explore now.</h3>
                 <br></br>
-                <form className='form' style={{ width: '80%' }}>
-                    <div class="input-group">
-                        <input type="text" class="form-control" style={{ backgroundColor: "#0e1f23", color: "white" }} placeholder="Search for movies, series, episodes..." />
-                        <div class="input-group-append">
-                            <button class="btn btn-warning" type="submit">
-                                <i class="fa fa-search"></i>
+                <form className="form" style={{ width: '80%' }} onSubmit={handleSearch}>
+                    <div className="input-group">
+                        <input
+                            type="text"
+                            className="form-control"
+                            style={{ backgroundColor: '#0e1f23', color: 'white' }}
+                            placeholder="Search for movies, series, episodes..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                        <div className="input-group-append">
+                            <button type='submit' className="btn btn-warning">
+                                <i className="fa fa-search"></i>
                             </button>
                         </div>
                     </div>
-
                 </form>
             </div>
             {/* search end  */}
 
-            {/* test start */}
 
-
-            {/* test end */}
 
 
             {/* Popular Movies start */}

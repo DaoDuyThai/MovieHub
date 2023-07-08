@@ -19,7 +19,7 @@ function DetailsContent({ movieId }) {
     useEffect(() => {
         const fetchMovie = async () => {
             try {
-                const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?language=en-US`, options);
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?`, options);
                 const data = await response.json();
                 setMovie(data);
                 setIsLoading(false);

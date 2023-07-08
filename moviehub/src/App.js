@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { Container, Row, Col } from 'react-bootstrap';
 import Home from "./screens/Home/Home";
-import SearchMovie from "./screens/SearchMovie";
+import Search from "./screens/Search/Search";
 import Details from "./screens/Details/Details";
 import Player from "./screens/Player/Player";
 import ActiveDeactiveAccount from './screens/ActiveDeactiveAccount';
@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/search" element={<SearchMovie />} />
+          <Route path="/search/:query" element={<Search />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/player/:id" element={<Player />} />
           {/* <Route path="/" element={<Login />} /> */}
