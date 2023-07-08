@@ -8,6 +8,10 @@
     font: 14px/22px "Lato", Arial, sans-serif;
     color: #A9A8A3;
     padding: 40px 0;
+    background-image: url("/public/assets/img/StaryBackground.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 

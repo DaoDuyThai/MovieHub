@@ -14,7 +14,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark navbar-background">
             <div className="container-fluid">
-                <Link className="navbar-brand text-light" to="/">
+                <Link style={{fontWeight:"bold"}} className="navbar-brand text-light" to="/">
                     MOVIE<span className="text-warning">HUB</span>
                 </Link>
 

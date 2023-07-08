@@ -43,7 +43,7 @@ function DetailsContent({ movieId }) {
         <div className="content-container">
             <div className="movie-card">
                 <div className="container">
-                    <Link to="#">
+                    <Link to={`/player/${movieId}`}>
                         <img style={{ width: "200px" }} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" className="cover" />
                     </Link>
                     <div className="hero" style={{
