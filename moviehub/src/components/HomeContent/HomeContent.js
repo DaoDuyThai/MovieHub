@@ -116,9 +116,9 @@ const HomeContent = () => {
 
 
             {/* Popular Movies start */}
-            <section class="section popular-courses" style={{ marginTop: "30px" }}>
-                <div class="container">
-                    <div class="section-header aos" data-aos="fade-up">
+            <section className="section popular-courses" style={{ marginTop: "30px" }}>
+                <div className="container">
+                    <div className="section-header aos" data-aos="fade-up">
                         <h2 className='text-warning'>Trending Movies</h2>
                     </div>
                     {/* popular movies carousel start */}
@@ -126,23 +126,23 @@ const HomeContent = () => {
                         {
                             popularMovies.map((movie) => (
                                 <div data-aos="fade-up" style={{ scale: "90%" }} >
-                                    <div class="movie">
-                                        <div class="movie-img" >
+                                    <div className="movie">
+                                        <div className="movie-img" >
                                             <Link to={`/details/${movie.id}`}>
-                                                <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                <img className="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
                                                     e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
                                                 }}></img>
                                             </Link>
                                         </div>
-                                        <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
-                                            <h5 class="text-warning">
-                                                <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
+                                        <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                            <h5 className="text-warning">
+                                                <Link className="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
                                             </h5>
                                         </div>
-                                        <div class="bottom">
+                                        <div className="bottom">
                                             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
-                                                <div><i class="far fa-clock"></i> {movie.release_date}</div>
-                                                <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
+                                                <div><i className="far fa-clock"></i> {movie.release_date}</div>
+                                                <span className="rating text-warning"><i className="fas fa-thumbs-up"></i> {movie.vote_average}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -154,7 +154,7 @@ const HomeContent = () => {
                     {/* Popular Movies end * */}
 
                     <br></br>
-                    <div class="section-header aos" data-aos="fade-up">
+                    <div className="section-header aos" data-aos="fade-up">
                         <h2 className='text-warning'>New Movies</h2>
                     </div>
 
@@ -164,23 +164,23 @@ const HomeContent = () => {
                             <Col md={3}>
 
                                 <div data-aos="fade-up" style={{ scale: "90%" }} >
-                                    <div class="movie">
-                                        <div class="movie-img" >
+                                    <div className="movie">
+                                        <div className="movie-img" >
                                             <Link to={`/details/${movie.id}`}>
-                                                <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                <img className="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
                                                     e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
                                                 }}></img>
                                             </Link>
                                         </div>
-                                        <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
-                                            <h5 class="text-warning">
-                                                <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
+                                        <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                            <h5 className="text-warning">
+                                                <Link className="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
                                             </h5>
                                         </div>
-                                        <div class="bottom">
+                                        <div className="bottom">
                                             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
-                                                <div><i class="far fa-clock"></i> {movie.release_date}</div>
-                                                <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
+                                                <div><i className="far fa-clock"></i> {movie.release_date}</div>
+                                                <span className="rating text-warning"><i className="fas fa-thumbs-up"></i> {movie.vote_average}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -198,7 +198,7 @@ const HomeContent = () => {
 
                     {/* New series start */}
                     <br></br>
-                    <div class="section-header aos" data-aos="fade-up">
+                    <div className="section-header aos" data-aos="fade-up">
                         <h2 className='text-warning'>New TV Shows</h2>
                     </div>
                     <Row>
@@ -206,23 +206,23 @@ const HomeContent = () => {
                             <Col md={4}>
 
                                 <div data-aos="fade-up" style={{ scale: "90%" }} >
-                                    <div class="movie">
-                                        <div class="movie-img" >
+                                    <div className="movie">
+                                        <div className="movie-img" >
                                             <Link to={`/details/${movie.id}`}>
-                                                <img class="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                <img className="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
                                                     e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
                                                 }}></img>
                                             </Link>
                                         </div>
-                                        <div class="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
-                                            <h5 class="text-warning">
-                                                <Link class="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
+                                        <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                            <h5 className="text-warning">
+                                                <Link className="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
                                             </h5>
                                         </div>
-                                        <div class="bottom">
+                                        <div className="bottom">
                                             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
-                                                <div><i class="far fa-clock"></i> {movie.release_date}</div>
-                                                <span class="rating text-warning"><i class="fas fa-thumbs-up"></i> {movie.vote_average}</span>
+                                                <div><i className="far fa-clock"></i> {movie.release_date}</div>
+                                                <span className="rating text-warning"><i className="fas fa-thumbs-up"></i> {movie.vote_average}</span>
                                             </div>
                                         </div>
                                     </div>

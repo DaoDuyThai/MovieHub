@@ -133,11 +133,11 @@ const SearchContent = ({ query }) => {
               <Col md={3}>
                 <br></br>
                 <div data-aos="fade-up" style={{ scale: '90%' }}>
-                  <div class="movie">
-                    <div class="movie-img">
+                  <div className="movie">
+                    <div className="movie-img">
                       <Link to={`/details/${movie.id}`}>
                         <img
-                          class="img-fluid"
+                          className="img-fluid"
                           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                           onError={(e) => {
                             e.target.src =
@@ -146,20 +146,20 @@ const SearchContent = ({ query }) => {
                         ></img>
                       </Link>
                     </div>
-                    <div class="top" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
-                      <h5 class="text-warning">
-                        <Link class="text-warning" to={`/details/${movie.id}`}>
+                    <div className="top" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '15px' }}>
+                      <h5 className="text-warning">
+                        <Link className="text-warning" to={`/details/${movie.id}`}>
                           {movie.original_title}
                         </Link>
                       </h5>
                     </div>
-                    <div class="bottom">
+                    <div className="bottom">
                       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', listStyleType: 'none' }}>
                         <div>
-                          <i class="far fa-clock"></i> {movie.release_date}
+                          <i className="far fa-clock"></i> {movie.release_date}
                         </div>
-                        <span class="rating text-warning">
-                          <i class="fas fa-thumbs-up"></i> {movie.vote_average}
+                        <span className="rating text-warning">
+                          <i className="fas fa-thumbs-up"></i> {movie.vote_average}
                         </span>
                       </div>
                     </div>

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./DetailsContent.css";
 import { useParams, Link } from 'react-router-dom';
 
-
 function DetailsContent({ movieId }) {
     const [movie, setMovie] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [casts, setCasts] = useState(null);
 
-    //api key to the movie database
+    // api key to the movie database
     const options = {
         method: 'GET',
         headers: {
@@ -31,6 +31,21 @@ function DetailsContent({ movieId }) {
         fetchMovie();
     }, [movieId]);
 
+
+    useEffect(() => {
+        const fetchMovieCredits = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/credits?`, options);
+                const data = await response.json();
+                setCasts(data.cast);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchMovieCredits();
+    }, [movieId]);
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -47,10 +62,14 @@ function DetailsContent({ movieId }) {
                         <img style={{ width: "200px" }} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" className="cover" />
                     </Link>
                     <div className="hero" style={{
-                        background: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`, backgroundSize: "100%", backgroundRepeat: "no-repeat"
+                        background: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
+                        backgroundSize: "100%",
+                        backgroundRepeat: "no-repeat"
                     }}>
                         <div className="details">
-                            <div className="title1 text-warning shadow" style={{ fontWeight: "bold", textShadow: "initial" }}>{movie.original_title} </div>
+                            <Link to={`/player/${movieId}`}>
+                                <div className="title1 text-warning shadow" style={{ fontWeight: "bold", textShadow: "initial" }}>{movie.original_title} </div>
+                            </Link>
                             <div className="title2">Release date: {movie.release_date}</div>
                             <fieldset className="rating">
                                 <input type="radio" id="star5" name="rating" value="5" /><label className="full" htmlFor="star5" title="Awesome - 5 stars"></label>
@@ -68,32 +87,41 @@ function DetailsContent({ movieId }) {
                         </div>
                     </div>
                     <div className="description row">
-                        <div className="column1">{
-                            movie.genres.map((genre) => (
-                                <span className="tag">{genre.name}</span>
-                            ))
-                        }
+                        <div className="column1">
+                            {
+                                movie.genres.map((genre) => (
+                                    <span className="tag" key={genre.id}>{genre.name}</span>
+                                ))
+                            }
                         </div>
                         <div className="column2">
+                            <h3 className="text-warning">Description</h3>
                             <p>{movie.overview}</p>
                             <div className="avatars">
-                                <a href="#" data-tooltip="Person 1" data-placement="top">
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar1.png" alt="avatar1" />
-                                </a>
-                                <a href="#" data-tooltip="Person 2" data-placement="top">
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar2.png" alt="avatar2" />
-                                </a>
-                                <a href="#" data-tooltip="Person 3" data-placement="top">
-                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/hobbit_avatar3.png" alt="avatar3" />
-                                </a>
+                                <h3 className="text-warning">Casts</h3>
+                                {
+                                    casts ? (
+                                        casts.slice(0, 10).map((cast) => (
+                                            <a href="#" data-tooltip={cast.name} data-placement="top" key={cast.id}>
+                                                <img
+                                                    style={{ width: "54px" }}
+                                                    className="rounded-circle"
+                                                    src={`https://www.themoviedb.org/t/p/w470_and_h470_face${cast.profile_path}`}
+                                                    onError={(e) => {
+                                                        e.target.src = "https://www.themoviedb.org/t/p/w470_and_h470_face/77YIEd2tastsT3fjEraKOjCvgyD.jpg";
+                                                    }}
+                                                />
+                                            </a>
+                                        ))
+                                    ) : (
+                                            <div>No cast members available.</div>
+                                        )
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     );
 }

@@ -1,12 +1,16 @@
 import React from 'react';
 import './PlayerContent.css';
 import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 const PlayerContent = ({ movieId }) => {
 
     const [movie, setMovie] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const [movieDetails, setMovieDetails] = useState(null);
+    const [similarMovies, setSimilarMovies] = useState(null);
 
 
 
@@ -25,6 +29,22 @@ const PlayerContent = ({ movieId }) => {
                 const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?`, options);
                 const data = await response.json();
                 setMovieDetails(data);
+                setIsLoading(false);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchMovie();
+    }, [movieId]);
+
+
+    useEffect(() => {
+        const fetchMovie = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?page=1`, options);
+                const data = await response.json();
+                setSimilarMovies(data.results);
                 setIsLoading(false);
             } catch (error) {
                 console.error(error);
@@ -58,6 +78,27 @@ const PlayerContent = ({ movieId }) => {
         return <div>Movie not found.</div>;
     }
 
+    //carousel responsive
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 3000 },
+            items: 9
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 6
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1
+        }
+    };
+
+
 
     return (
         <div className='content-container'>
@@ -78,6 +119,40 @@ const PlayerContent = ({ movieId }) => {
 
 
 
+            </div>
+
+            <div className='movie-card' style={{ padding: "20px" }}>
+                <h2 className='text-warning'>
+                    Maybe you also interested
+                </h2>
+                <Carousel responsive={responsive}>
+                    {
+                        similarMovies.map((movie) => (
+                            <div data-aos="fade-up" style={{ scale: "90%" }} >
+                                <div className="movie">
+                                    <div className="movie-img" >
+                                        <Link to={`/details/${movie.id}`}>
+                                            <img className="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
+                                                e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
+                                            }}></img>
+                                        </Link>
+                                    </div>
+                                    <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                        <h5 className="text-warning">
+                                            <Link className="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
+                                        </h5>
+                                    </div>
+                                    <div className="bottom">
+                                        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
+                                            <div><i className="far fa-clock"></i> {movie.release_date}</div>
+                                            <span className="rating text-warning"><i className="fas fa-thumbs-up"></i> {movie.vote_average}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))
+                    }
+                </Carousel>
             </div>
         </div>
 
