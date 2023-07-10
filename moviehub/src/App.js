@@ -8,6 +8,9 @@ import Player from "./screens/Player/Player";
 import ActiveDeactiveAccount from './screens/ActiveDeactiveAccount';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
+import Movies from './screens/Movies/Movies';
+import TVShows from "./screens/TVShows/TVShows";
+
 
 function App() {
   // const [account, setAccount] = useState();
@@ -21,6 +24,8 @@ function App() {
           <Route path="/search/:query" element={<Search />} />
           <Route path="/details/:id" element={<Details />} />
           <Route path="/player/:id" element={<Player />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/tvshow" element={<TVShows />} />
           {/* <Route path="/" element={<Login />} /> */}
           {/* <Route path="/" element={<ForgotPassword />} /> */}
           {/* <Route path="/" element={<Register />} /> */}

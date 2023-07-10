@@ -20,10 +20,10 @@ const Header = () => {
 
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div className="navbar-nav mr-auto">
-                        <Link className="nav-link" to="/">
+                        <Link className="nav-link" to="/movies">
                             <span className="nav-link-text">Movies</span>
                         </Link>
-                        <Link className="nav-link" to="/">
+                        <Link className="nav-link" to="/tvshow">
                             <span className="nav-link-text">TV Shows</span>
                         </Link>
                         <Link className="nav-link" to="/">
