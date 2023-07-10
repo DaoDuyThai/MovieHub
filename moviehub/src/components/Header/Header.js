@@ -40,7 +40,7 @@ const Header = () => {
                     <Link className="nav-link" to="/login">
                         <button className='btn btn-outline-warning button-left'>Sign In</button>
                     </Link>
-                    <Link className="nav-link" to="/signup">
+                    <Link className="nav-link" to="/register">
                         <button className='btn btn-outline-warning button-left'>Sign Up</button>
                     </Link>
                 </div>

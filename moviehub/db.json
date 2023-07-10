@@ -71,6 +71,15 @@
       "gender": "Nữ",
       "role": 0,
       "active": true
+    },
+    {
+      "id": 9,
+      "name": "HieuNT",
+      "email": "HieuTrung2224@gmail.com",
+      "password": "12345678",
+      "gender": "Female",
+      "role": 1,
+      "active": true
     }
   ]
 }
