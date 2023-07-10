@@ -20,7 +20,7 @@ const HomeContent = () => {
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    today = yyyy + '-' + mm + '-' + dd;
+    today = yyyy + '-' + "01" + '-' + "01";
 
 
     //api key to the movie database
@@ -43,7 +43,7 @@ const HomeContent = () => {
 
     //get new movies    
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US%2C%20vi-VN&page=5&primary_release_date.lte=${today}&sort_by=primary_release_date.desc&with_origin_country=US`, options)
+        fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=false&language=en-US%2C%20vi-VN&page=5&primary_release_date.lte=${today}&sort_by=popularity.desc&with_origin_country=US`, options)
             .then(response => response.json())
             .then(data => setNewMovies(data.results))
             .catch(err => console.error(err));
@@ -52,7 +52,8 @@ const HomeContent = () => {
 
     //get new series
     useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/discover/tv?air_date.lte=${today}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=9&sort_by=primary_release_date.desc&with_origin_country=US`, options)
+        fetch(`https://api.themoviedb.org/3/discover/tv?air_date.lte=${today}&include_adult=false&include_null_first_air_dates=false&language=en-US&page=9&sort_by=popularity.desc
+        &with_origin_country=US`, options)
             .then(response => response.json())
             .then(data => setNewSeries(data.results))
             .catch(err => console.error(err));

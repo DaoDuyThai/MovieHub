@@ -76,8 +76,7 @@ function DetailsContent({ movieId }) {
         return (
             <div className="content-container" style={{ height: "500px" }}>
                 <div>Loading...</div>
-            </div >
-
+            </div>
         );
     }
 
@@ -85,8 +84,8 @@ function DetailsContent({ movieId }) {
     if (!movie) {
         return (
             <div className="content-container" style={{ height: "500px" }}>
-                <div>Movie not found.</div>;
-            </div >
+                <div>Movie not found.</div>
+            </div>
         );
     }
 
@@ -116,7 +115,7 @@ function DetailsContent({ movieId }) {
         <div className="content-container">
             <div className="movie-card">
                 <div className="container">
-                    {/* Link to player start  */}
+                    {/* Link to player start */}
                     <Link to={`/player/${movieId}`}>
                         <img style={{ width: "200px" }} src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} alt="" className="cover" />
                     </Link>
@@ -152,13 +151,10 @@ function DetailsContent({ movieId }) {
 
                     <div className="description row">
                         {/* genres start */}
-
                         <div className="column1">
-                            {
-                                movie?.genres?.map((genre) => (
-                                    <span className="tag" key={genre?.id}>{genre?.name}</span>
-                                ))
-                            }
+                            {movie?.genres?.map((genre) => (
+                                <span className="tag" key={genre?.id}>{genre?.name}</span>
+                            ))}
                         </div>
                         {/* genres end */}
 
@@ -169,24 +165,23 @@ function DetailsContent({ movieId }) {
                             <div className="avatars">
                                 <hr></hr>
                                 <h3 className="text-warning">Casts</h3>
-                                {
-                                    casts ? (
-                                        casts?.slice(0, 10).map((cast) => (
-                                            <a href="#" data-tooltip={cast?.name} data-placement="top" key={cast?.id}>
-                                                <img
-                                                    style={{ width: "54px" }}
-                                                    className="rounded-circle"
-                                                    src={`https://www.themoviedb.org/t/p/w470_and_h470_face${cast?.profile_path}`}
-                                                    onError={(e) => {
-                                                        e.target.src = "https://www.themoviedb.org/t/p/w470_and_h470_face/77YIEd2tastsT3fjEraKOjCvgyD.jpg";
-                                                    }}
-                                                />
-                                            </a>
-                                        ))
-                                    ) : (
-                                        <div>No cast members available.</div>
-                                    )
-                                }
+                                {casts ? (
+                                    casts?.slice(0, 10).map((cast) => (
+                                        <a href="#" data-tooltip={cast?.name} data-placement="top" key={cast?.id}>
+                                            <img
+                                                style={{ width: "54px" }}
+                                                className="rounded-circle"
+                                                src={`https://www.themoviedb.org/t/p/w470_and_h470_face${cast?.profile_path}`}
+                                                onError={(e) => {
+                                                    e.target.src = "https://www.themoviedb.org/t/p/w470_and_h470_face/77YIEd2tastsT3fjEraKOjCvgyD.jpg";
+                                                }}
+                                                alt={cast?.name}
+                                            />
+                                        </a>
+                                    ))
+                                ) : (
+                                    <div>No cast members available.</div>
+                                )}
                             </div>
                         </div>
                         {/* description and cast end */}
@@ -195,12 +190,14 @@ function DetailsContent({ movieId }) {
             </div>
 
             <div className="movie-card" style={{ padding: "20px" }}>
-                <h2 className="text-warning">
-                    Maybe you're also interested
-                </h2>
+                <h2 className="text-warning">Maybe you're also interested</h2>
                 <Carousel responsive={responsive}>
                     {similarMovies.map((movie) => (
-                        <div data-aos="fade-up" style={{ scale: "90%" }} key={movie?.id}>
+                        <div
+                            data-aos="fade-up"
+                            style={{ scale: "90%" }}
+                            key={movie?.id}
+                        >
                             <div className="movie">
                                 <div className="movie-img">
                                     <Link to={`/details/${movie?.id}`}>
@@ -214,15 +211,33 @@ function DetailsContent({ movieId }) {
                                         />
                                     </Link>
                                 </div>
-                                <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                <div
+                                    className="top"
+                                    style={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between",
+                                        marginBottom: "15px",
+                                    }}
+                                >
                                     <h5 className="text-warning">
-                                        <Link className="text-warning" to={`/details/${movie.id}`}>
+                                        <Link
+                                            className="text-warning"
+                                            to={`/details/${movie.id}`}
+                                        >
                                             {movie?.original_title}
                                         </Link>
                                     </h5>
                                 </div>
                                 <div className="bottom">
-                                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
+                                    <div
+                                        style={{
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "space-between",
+                                            listStyleType: "none",
+                                        }}
+                                    >
                                         <div>
                                             <i className="far fa-clock"></i> {movie?.release_date}
                                         </div>
