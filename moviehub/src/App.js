@@ -11,7 +11,8 @@ import React from 'react';
 import Movies from './screens/Movies/Movies';
 import TVShows from "./screens/TVShows/TVShows";
 import ActiveDeactiveAccount from './screens/Admin/ActiveDeactiveAccount';
-
+import UserProfile from './screens/UserProfile/UserProfile';
+import EditProfile from './screens/EditProfile/EditProfile'
 
 function App() {
   // const [account, setAccount] = useState();
@@ -31,8 +32,8 @@ function App() {
           {/* <Route path="/" element={<Login />} /> */}
           {/* <Route path="/" element={<ForgotPassword />} /> */}
           {/* <Route path="/" element={<Register />} /> */}
-          {/* <Route path="/" element={<UserProfile />} /> */}
-          {/* <Route path="/" element={<EditProfile />} /> */}
+          <Route path="/userprofile" element={<UserProfile />} />
+          <Route path="/editprofile" element={<EditProfile />} />
           {/* <Route path="/" element={<Favourites />} /> */}
           {/* {account?.role === 0 && ( */}
           <Route path="/admin" element={<ActiveDeactiveAccount />} />
