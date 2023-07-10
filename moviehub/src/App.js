@@ -5,7 +5,6 @@ import Home from "./screens/Home/Home";
 import Search from "./screens/Search/Search";
 import Details from "./screens/Details/Details";
 import Player from "./screens/Player/Player";
-import ActiveDeactiveAccount from './screens/ActiveDeactiveAccount';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import Movies from './screens/Movies/Movies';
@@ -33,8 +32,6 @@ function App() {
           {/* <Route path="/" element={<EditProfile />} /> */}
           {/* <Route path="/" element={<Favourites />} /> */}
           {/* {account?.role === 0 && ( */}
-          <Route path="/admin" element={<ActiveDeactiveAccount />} />
-          {/* )} */}
         </Routes>
       </BrowserRouter>
 
