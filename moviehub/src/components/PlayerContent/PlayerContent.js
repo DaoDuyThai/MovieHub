@@ -78,7 +78,7 @@ const PlayerContent = ({ movieId }) => {
     return (
         <div className="content-container">
             <div className="movie-card">
-                <h2 className="text-warning" style={{ marginLeft: "20px" }}>{movieDetails.original_title}</h2>
+                <h2 className="text-warning" style={{ marginLeft: "20px", fontWeight:"bold" }}>{movieDetails.original_title}</h2>
                 <p style={{ marginLeft: "20px" }}>Have a nice Netflix and Chill!!!</p>
                 <div className="container" style={{ textAlign: "center" }}>
                     <iframe

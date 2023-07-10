@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import { Row, Col } from 'react-bootstrap'
+import { Row, Col, Button } from 'react-bootstrap'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import './HomeContent.css';
+import './MoviesContent.css';
 import { Link } from 'react-router-dom';
 
-const HomeContent = () => {
+const MoviesContent = () => {
     //get set trending movies
     const [popularMovies, setPopularMovies] = useState([]);
     //get set new movies
@@ -14,6 +14,21 @@ const HomeContent = () => {
     const [newSeries, setNewSeries] = useState([]);
     //get set search query
     const [searchQuery, setSearchQuery] = useState('');
+    //get set page
+    const [page, setPage] = useState(1);
+
+    //increase page
+    const handleIncreasePage = () => {
+        setPage((prevPage) => prevPage + 1);
+    };
+
+
+    //decrease page
+    const handleDecreasePage = () => {
+        if (page > 1) {
+            setPage((prevPage) => prevPage - 1);
+        }
+    };
 
     //get today date format
     var today = new Date();
@@ -34,12 +49,12 @@ const HomeContent = () => {
 
     //get popular movies
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=en-US&page=1&primary_release_year=2023&sort_by=popularity.desc', options)
+        fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=true&include_video=true&language=en-US&page=${page}&primary_release_year=2023&sort_by=popularity.desc`, options)
             .then(response => response.json())
             .then(data => setPopularMovies(data.results))
             .catch(err => console.error(err));
 
-    }, []);
+    }, [page]);
 
     //get new movies    
     useEffect(() => {
@@ -122,54 +137,20 @@ const HomeContent = () => {
             {/* Popular Movies start */}
             <section className="section popular-courses" style={{ marginTop: "30px" }}>
                 <div className="container">
-                    <div className="section-header aos" data-aos="fade-up">
-                        <h2 className='text-warning'>Trending Movies</h2>
-                    </div>
-                    <hr></hr>
-                    {/* popular movies carousel start */}
-                    <Carousel responsive={responsive}>
-                        {
-                            popularMovies.map((movie) => (
-                                <div data-aos="fade-up" style={{ scale: "90%" }} >
-                                    <div className="movie">
-                                        <div className="movie-img" >
-                                            <Link to={`/details/${movie.id}`}>
-                                                <img className="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
-                                                    e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
-                                                }}></img>
-                                            </Link>
-                                        </div>
-                                        <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
-                                            <h5 className="text-warning">
-                                                <Link className="text-warning" to={`/details/${movie.id}`}>{movie.original_title}</Link>
-                                            </h5>
-                                        </div>
-                                        <div className="bottom">
-                                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
-                                                <div><i className="far fa-clock"></i> {movie.release_date}</div>
-                                                <span className="rating text-warning"><i className="fas fa-thumbs-up"></i> {movie.vote_average}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))
-                        }
-                    </Carousel>
-                    {/* popular movies carousel end  */}
 
-                    <hr></hr>
+
 
                     {/* Popular Movies end * */}
 
                     <br></br>
                     <div className="section-header aos" data-aos="fade-up">
-                        <h2 className='text-warning'>New Movies</h2>
+                        <h2 className='text-warning'>Movies</h2>
                     </div>
                     <hr></hr>
 
                     {/* New Movies start */}
                     <Row className='newMovie'>
-                        {newMovies.map((movie) => (
+                        {popularMovies.map((movie) => (
                             <Col md={3}>
 
                                 <div data-aos="fade-up" style={{ scale: "90%" }} >
@@ -200,49 +181,24 @@ const HomeContent = () => {
                         ))}
                     </Row>
                     {/* New Movies end */}
+                    <center style={{ padding: '30px' }}>
+        <div className="pagination-buttons">
+          <Button variant="warning" onClick={handleDecreasePage} disabled={page === 1}>
+            Back
+          </Button>
+          <span className="page-number" style={{ fontWeight: 'bold' }}>
+            {page}
+          </span>
+          <Button variant="warning" onClick={handleIncreasePage}>
+            Next
+          </Button>
+        </div>
+      </center>
 
-                    <hr></hr>
-
-                    {/* New series start */}
-                    <br></br>
-                    <div className="section-header aos" data-aos="fade-up">
-                        <h2 className='text-warning'>New TV Shows</h2>
-                    </div>
-                    <hr></hr>
-                    <Row>
-                        {newSeries.map((movie) => (
-                            <Col md={4}>
-
-                                <div data-aos="fade-up" style={{ scale: "90%" }} >
-                                    <div className="movie">
-                                        <div className="movie-img" >
-                                            <Link to={`/details/${movie.id}`}>
-                                                <img className="img-fluid" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} onError={(e) => {
-                                                    e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
-                                                }}></img>
-                                            </Link>
-                                        </div>
-                                        <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
-                                            <h5 className="text-warning">
-                                                <Link className="text-warning" to={`/details/${movie.id}`}>{movie.name}</Link>
-                                            </h5>
-                                        </div>
-                                        <div className="bottom">
-                                            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
-                                                <div><i className="far fa-clock"></i> {movie.first_air_date}</div>
-                                                <span className="rating text-warning"><i className="fas fa-thumbs-up"></i> {movie.vote_average}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </Col>
-                        ))}
-                    </Row>
-                    {/* New series end */}
                 </div>
             </section>
         </div>
 
     );
 }
-export default HomeContent;
+export default MoviesContent;

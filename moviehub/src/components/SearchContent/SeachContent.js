@@ -94,6 +94,7 @@ const SearchContent = ({ query }) => {
   }, []);
 
 
+  //get filtered movies list
   const filteredMovies = movies.filter((movie) => {
     // Filter by genre
     if (selectedGenre && movie.genre_ids.includes(parseInt(selectedGenre))) {
@@ -118,6 +119,7 @@ const SearchContent = ({ query }) => {
     return false;
   });
 
+  //handle search
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim() !== '') {
@@ -127,6 +129,7 @@ const SearchContent = ({ query }) => {
 
   return (
     <div className="content-container">
+
       {/* search start */}
       <div className="search-container">
         <h1 style={{ fontWeight: 'bold' }}>
@@ -282,7 +285,7 @@ const SearchContent = ({ query }) => {
             Back
           </Button>
           <span className="page-number" style={{ fontWeight: 'bold' }}>
-            {page}
+              {page}  
           </span>
           <Button variant="warning" onClick={handleIncreasePage}>
             Next
