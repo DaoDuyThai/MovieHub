@@ -2,12 +2,12 @@ import "../Admin/LeftDashboard.css";
 
 function LeftDashboard() {
   return (
-    <div className="leftDashboard">
+    <div className="leftDashboard text-warning">
       <h3>
       </h3>
       <hr />
       <div>
-        <h5>Quản lí tài khoản</h5>
+        <h5>Account Management</h5>
       </div>
     </div>
   );

@@ -123,7 +123,7 @@ const HomeContent = () => {
             <section className="section popular-courses" style={{ marginTop: "30px" }}>
                 <div className="container">
                     <div className="section-header aos" data-aos="fade-up">
-                        <h2 className='text-warning'>Trending Movies</h2>
+                        <h2 className='text-warning' style={{fontWeight:'bold'}}>TRENDING MOVIES</h2>
                     </div>
                     <hr></hr>
                     {/* popular movies carousel start */}
@@ -163,7 +163,7 @@ const HomeContent = () => {
 
                     <br></br>
                     <div className="section-header aos" data-aos="fade-up">
-                        <h2 className='text-warning'>New Movies</h2>
+                        <h2 className='text-warning' style={{fontWeight:'bold'}}>NEW MOVIES</h2>
                     </div>
                     <hr></hr>
 
@@ -172,7 +172,7 @@ const HomeContent = () => {
                         {newMovies.map((movie) => (
                             <Col md={3}>
 
-                                <div data-aos="fade-up" style={{ scale: "90%" }} >
+                                <div data-aos="fade-up " style={{ scale: "90%" }} >
                                     <div className="movie">
                                         <div className="movie-img" >
                                             <Link to={`/details/${movie.id}`}>
@@ -194,8 +194,6 @@ const HomeContent = () => {
                                         </div>
                                     </div>
                                 </div>
-
-
                             </Col>
                         ))}
                     </Row>
@@ -206,7 +204,7 @@ const HomeContent = () => {
                     {/* New series start */}
                     <br></br>
                     <div className="section-header aos" data-aos="fade-up">
-                        <h2 className='text-warning'>New TV Shows</h2>
+                        <h2 className='text-warning' style={{fontWeight:'bold'}}>NEW TV SHOW</h2>
                     </div>
                     <hr></hr>
                     <Row>

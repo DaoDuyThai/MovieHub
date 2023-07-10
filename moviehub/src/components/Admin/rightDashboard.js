@@ -15,7 +15,7 @@ function RightDashboard() {
 
   return (
     <div className='userInfo'>
-      <h1> Có <span style={{ color: '#ffc107' }}>{users.length}</span> người dùng </h1>
+      <h1 className="text-white" style={{padding:"20px"}}>  There are <span style={{ color: '#ffc107' }}>{users.length}</span> accounts </h1>
       <hr />
       <div className='content'>
         {users.map(user => {

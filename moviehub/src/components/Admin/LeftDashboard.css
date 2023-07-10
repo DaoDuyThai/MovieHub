@@ -1,10 +1,12 @@
 .leftDashboard {
-    margin-top: 20px;
+    margin-top: 0;
     padding: 0 20px;
     width: 100%;
     min-height: 690px;
     z-index: 2;
     box-shadow: rgba(0, 0, 0, 0.3) 2.4px 2.4px 3.2px;
+    background-color: #00192e;
+    
     hr {
       background-color: black;
       box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
@@ -39,7 +41,7 @@
   
     ul {
       list-style-type: none;
-      margin-left: 8px;
+      margin-left: 0;
       li {
         font-size: 16px;
         font-weight: 400;
