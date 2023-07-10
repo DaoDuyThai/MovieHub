@@ -118,21 +118,21 @@ function DetailsContent({ movieId }) {
                 <div className="container">
                     {/* Link to player start  */}
                     <Link to={`/player/${movieId}`}>
-                        <img style={{ width: "200px" }} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" className="cover" />
+                        <img style={{ width: "200px" }} src={`https://image.tmdb.org/t/p/original${movie?.poster_path}`} alt="" className="cover" />
                     </Link>
                     {/* Link to player stop */}
 
                     {/* Backdrop start */}
                     <div className="hero" style={{
-                        background: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
+                        background: `url(https://image.tmdb.org/t/p/w500${movie?.backdrop_path})`,
                         backgroundSize: "100%",
                         backgroundRepeat: "no-repeat"
                     }}>
                         <div className="details">
                             <Link to={`/player/${movieId}`}>
-                                <div className="title1 text-warning shadow" style={{ fontWeight: "bold", textShadow: "initial" }}>{movie.original_title} </div>
+                                <div className="title1 text-warning shadow" style={{ fontWeight: "bold", textShadow: "initial" }}>{movie?.original_title} </div>
                             </Link>
-                            <div className="title2">Release date: {movie.release_date}</div>
+                            <div className="title2">Release date: {movie?.release_date}</div>
                             <fieldset className="rating">
                                 <input type="radio" id="star5" name="rating" value="5" /><label className="full" htmlFor="star5" title="Awesome - 5 stars"></label>
                                 <input type="radio" id="star4half" name="rating" value="4 and a half" /><label className="half" htmlFor="star4half" title="Pretty good - 4.5 stars"></label>
@@ -145,7 +145,7 @@ function DetailsContent({ movieId }) {
                                 <input type="radio" id="star1" name="rating" value="1" /><label className="full" htmlFor="star1" title="Sucks big time - 1 star"></label>
                                 <input type="radio" id="starhalf" name="rating" value="half" /><label className="half" htmlFor="starhalf" title="Sucks big time - 0.5 stars"></label>
                             </fieldset>
-                            <span className="likes">{movie.popularity}</span>
+                            <span className="likes">{movie?.popularity}</span>
                         </div>
                     </div>
                     {/* back drop end */}
@@ -155,8 +155,8 @@ function DetailsContent({ movieId }) {
 
                         <div className="column1">
                             {
-                                movie.genres.map((genre) => (
-                                    <span className="tag" key={genre.id}>{genre.name}</span>
+                                movie?.genres?.map((genre) => (
+                                    <span className="tag" key={genre?.id}>{genre?.name}</span>
                                 ))
                             }
                         </div>
@@ -165,18 +165,18 @@ function DetailsContent({ movieId }) {
                         {/* description and cast start */}
                         <div className="column2">
                             <h3 className="text-warning">Description</h3>
-                            <p>{movie.overview}</p>
+                            <p>{movie?.overview}</p>
                             <div className="avatars">
                                 <hr></hr>
                                 <h3 className="text-warning">Casts</h3>
                                 {
                                     casts ? (
-                                        casts.slice(0, 10).map((cast) => (
-                                            <a href="#" data-tooltip={cast.name} data-placement="top" key={cast.id}>
+                                        casts?.slice(0, 10).map((cast) => (
+                                            <a href="#" data-tooltip={cast?.name} data-placement="top" key={cast?.id}>
                                                 <img
                                                     style={{ width: "54px" }}
                                                     className="rounded-circle"
-                                                    src={`https://www.themoviedb.org/t/p/w470_and_h470_face${cast.profile_path}`}
+                                                    src={`https://www.themoviedb.org/t/p/w470_and_h470_face${cast?.profile_path}`}
                                                     onError={(e) => {
                                                         e.target.src = "https://www.themoviedb.org/t/p/w470_and_h470_face/77YIEd2tastsT3fjEraKOjCvgyD.jpg";
                                                     }}
@@ -200,34 +200,34 @@ function DetailsContent({ movieId }) {
                 </h2>
                 <Carousel responsive={responsive}>
                     {similarMovies.map((movie) => (
-                        <div data-aos="fade-up" style={{ scale: "90%" }} key={movie.id}>
+                        <div data-aos="fade-up" style={{ scale: "90%" }} key={movie?.id}>
                             <div className="movie">
                                 <div className="movie-img">
-                                    <Link to={`/details/${movie.id}`}>
+                                    <Link to={`/details/${movie?.id}`}>
                                         <img
                                             className="img-fluid"
-                                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                            src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
                                             onError={(e) => {
                                                 e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
                                             }}
-                                            alt={movie.original_title}
+                                            alt={movie?.original_title}
                                         />
                                     </Link>
                                 </div>
                                 <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
                                     <h5 className="text-warning">
                                         <Link className="text-warning" to={`/details/${movie.id}`}>
-                                            {movie.original_title}
+                                            {movie?.original_title}
                                         </Link>
                                     </h5>
                                 </div>
                                 <div className="bottom">
                                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
                                         <div>
-                                            <i className="far fa-clock"></i> {movie.release_date}
+                                            <i className="far fa-clock"></i> {movie?.release_date}
                                         </div>
                                         <span className="rating text-warning">
-                                            <i className="fas fa-thumbs-up"></i> {movie.vote_average}
+                                            <i className="fas fa-thumbs-up"></i> {movie?.vote_average}
                                         </span>
                                     </div>
                                 </div>
