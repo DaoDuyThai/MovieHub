@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./DetailsContent.css";
 import { useParams, Link } from 'react-router-dom';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 
 function DetailsContent({ movieId }) {
     //get set movie
@@ -9,6 +11,9 @@ function DetailsContent({ movieId }) {
     const [isLoading, setIsLoading] = useState(true);
     //get set casts
     const [casts, setCasts] = useState(null);
+    //get set similar movies
+    const [similarMovies, setSimilarMovies] = useState([]);
+
 
     // api key to the movie database
     const options = {
@@ -51,6 +56,21 @@ function DetailsContent({ movieId }) {
         fetchMovieCredits();
     }, [movieId]);
 
+
+    //get similar movies
+    useEffect(() => {
+        const fetchSimilarMovies = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/similar?page=1`, options);
+                const data = await response.json();
+                setSimilarMovies(data.results);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchSimilarMovies();
+    }, [movieId]);
+
     //if is Loading = true --> show loading
     if (isLoading) {
         return (
@@ -69,6 +89,28 @@ function DetailsContent({ movieId }) {
             </div >
         );
     }
+
+
+    // Carousel responsive
+    const responsive = {
+        superLargeDesktop: {
+            breakpoint: { max: 4000, min: 3000 },
+            items: 9,
+        },
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 6,
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+        },
+    };
+
 
     return (
         <div className="content-container">
@@ -150,6 +192,49 @@ function DetailsContent({ movieId }) {
                         {/* description and cast end */}
                     </div>
                 </div>
+            </div>
+
+            <div className="movie-card" style={{ padding: "20px" }}>
+                <h2 className="text-warning">
+                    Maybe you're also interested
+                </h2>
+                <Carousel responsive={responsive}>
+                    {similarMovies.map((movie) => (
+                        <div data-aos="fade-up" style={{ scale: "90%" }} key={movie.id}>
+                            <div className="movie">
+                                <div className="movie-img">
+                                    <Link to={`/details/${movie.id}`}>
+                                        <img
+                                            className="img-fluid"
+                                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                            onError={(e) => {
+                                                e.target.src = 'https://image.tmdb.org/t/p/w500/uS1AIL7I1Ycgs8PTfqUeN6jYNsQ.jpg';
+                                            }}
+                                            alt={movie.original_title}
+                                        />
+                                    </Link>
+                                </div>
+                                <div className="top" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "15px" }}>
+                                    <h5 className="text-warning">
+                                        <Link className="text-warning" to={`/details/${movie.id}`}>
+                                            {movie.original_title}
+                                        </Link>
+                                    </h5>
+                                </div>
+                                <div className="bottom">
+                                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", listStyleType: "none" }}>
+                                        <div>
+                                            <i className="far fa-clock"></i> {movie.release_date}
+                                        </div>
+                                        <span className="rating text-warning">
+                                            <i className="fas fa-thumbs-up"></i> {movie.vote_average}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </Carousel>
             </div>
         </div>
     );
