@@ -1,10 +1,9 @@
-import "../css/LeftDashboard.css";
+import "../Admin/LeftDashboard.css";
 
 function LeftDashboard() {
   return (
     <div className="leftDashboard">
       <h3>
-        <span style={{ color: '#ffc107' }}>Dash</span>board
       </h3>
       <hr />
       <div>

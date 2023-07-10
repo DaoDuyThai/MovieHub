@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { toast } from "react-toastify";
-import "../css/UserCard.css";
+import "../Admin/UserCard.css";
 
 function UserCard({ user }) {
   const navigate = useNavigate();

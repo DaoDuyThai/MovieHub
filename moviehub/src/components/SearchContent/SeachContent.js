@@ -130,6 +130,7 @@ const SearchContent = ({ query }) => {
   return (
     <div className="content-container">
 
+
       {/* search start */}
       <div className="search-container">
         <h1 style={{ fontWeight: 'bold' }}>
