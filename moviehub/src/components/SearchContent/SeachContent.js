@@ -94,10 +94,29 @@ const SearchContent = ({ query }) => {
   }, []);
 
 
-  //filter movies by genre
-  const filteredMovies = selectedGenre
-    ? movies.filter((movie) => movie.genre_ids.includes(parseInt(selectedGenre)))
-    : movies;
+  const filteredMovies = movies.filter((movie) => {
+    // Filter by genre
+    if (selectedGenre && movie.genre_ids.includes(parseInt(selectedGenre))) {
+      return true;
+    }
+
+    // Filter by rating
+    if (selectedRating && movie.vote_average >= parseFloat(selectedRating)) {
+      return true;
+    }
+
+    // Filter by release date
+    if (selectedReleaseDate && movie.release_date.split("-")[0] === selectedReleaseDate) {
+      return true;
+    }
+
+    // Display all movies if no filters are applied
+    if (!selectedGenre && !selectedRating && !selectedReleaseDate) {
+      return true;
+    }
+
+    return false;
+  });
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -142,10 +161,14 @@ const SearchContent = ({ query }) => {
         <Row>
           {/* filter genre start */}
           <Col md={3}>
-            <Form style={{ width: "300px", margin: "10px" }}>
+            <Form style={{ width: '300px', margin: '10px' }}>
               <Form.Group controlId="genreSelect">
                 <Form.Label>Genre:</Form.Label>
-                <Form.Control as="select" value={selectedGenre} onChange={handleGenreChange}>
+                <Form.Control
+                  as="select"
+                  value={selectedGenre}
+                  onChange={handleGenreChange}
+                >
                   <option value="">All Genres</option>
                   {genres.map((genre) => (
                     <option key={genre.id} value={genre.id}>
@@ -160,22 +183,50 @@ const SearchContent = ({ query }) => {
 
           {/* filter rating start */}
           <Col md={3}>
-            
+            <Form style={{ width: '300px', margin: '10px' }}>
+              <Form.Group controlId="ratingSelect">
+                <Form.Label>Rating:</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={selectedRating}
+                  onChange={handleRatingChange}
+                >
+                  <option value="">All Ratings</option>
+                  <option value="7">7+</option>
+                  <option value="8">8+</option>
+                  <option value="9">9+</option>
+                </Form.Control>
+              </Form.Group>
+            </Form>
           </Col>
           {/* filter rating end */}
-          <Col md={3}>
-
-          </Col>
 
           {/* filter release_date start */}
           <Col md={3}>
+            <Form style={{ width: '300px', margin: '10px' }}>
+              <Form.Group controlId="releaseDateSelect">
+                <Form.Label>Release Date:</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={selectedReleaseDate}
+                  onChange={handleReleaseDateChange}
+                >
+                  <option value="">All Release Dates</option>
+                  <option value="2023">2023</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                  <option value="2020">2020</option>
+                  <option value="2019">2019</option>
+                  <option value="2018">2018</option>
+                  <option value="2017">2017</option>
 
+                </Form.Control>
+              </Form.Group>
+            </Form>
           </Col>
           {/* filter release_date end */}
-
         </Row>
       </div>
-
       {/* filter end */}
 
       {/* movies start */}
