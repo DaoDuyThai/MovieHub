@@ -8,6 +8,11 @@ const PlayerContent = ({ movieId }) => {
     const [movieDetails, setMovieDetails] = useState(null);
     const [similarMovies, setSimilarMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    //for movies only
+    const [videoKey, setVideoKey] = useState(null);
+
+    //for tv shows only
+    const [videoKeyTv, setVideoKeyTv] = useState(null);
 
     // API key to the movie database
     const options = {
@@ -17,7 +22,7 @@ const PlayerContent = ({ movieId }) => {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNTM5MjUzZDY4Y2M4MzAxZjE2ODEzYmNmYjlkYTExOSIsInN1YiI6IjY0OGFjMzk4MjYzNDYyMDEyZDQ4OTJjNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.s9TqYBthAmgaue_Ex1O_XijAbVTGFpaWz4M1MfnO_6s',
         },
     };
-
+    //get movie details
     useEffect(() => {
         const fetchMovieDetails = async () => {
             try {
@@ -33,6 +38,7 @@ const PlayerContent = ({ movieId }) => {
         fetchMovieDetails();
     }, [movieId]);
 
+    //get similar movies
     useEffect(() => {
         const fetchSimilarMovies = async () => {
             try {
@@ -43,9 +49,38 @@ const PlayerContent = ({ movieId }) => {
                 console.error(error);
             }
         };
-
         fetchSimilarMovies();
     }, [movieId]);
+
+
+    //get video key for movies
+    useEffect(() => {
+        const fetchMovieVideoMovies = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}/videos?language=en-US`, options);
+                const data = await response.json();
+                setVideoKey(data.results[0]);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchMovieVideoMovies();
+    }, [movieId]);
+
+    //get video key for tv shows
+    useEffect(() => {
+        const fetchMovieVideoTv = async () => {
+            try {
+                const response = await fetch(`https://api.themoviedb.org/3/tv/${movieId}/videos?language=en-US`, options);
+                const data = await response.json();
+                setVideoKeyTv(data.results[0]);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        fetchMovieVideoTv();
+    }, [movieId]);
+    console.log(videoKeyTv);
 
     if (isLoading) {
         return <div>Loading...</div>;
@@ -78,16 +113,17 @@ const PlayerContent = ({ movieId }) => {
     return (
         <div className="content-container">
             <div className="movie-card">
-                <h2 className="text-warning" style={{ marginLeft: "20px", fontWeight:"bold" }}>{movieDetails.original_title}</h2>
+                <h2 className="text-warning" style={{ marginLeft: "20px", fontWeight: "bold" }}>{movieDetails.original_title}</h2>
                 <p style={{ marginLeft: "20px" }}>Have a nice Netflix and Chill!!!</p>
                 <div className="container" style={{ textAlign: "center" }}>
                     <iframe
                         width="1000"
                         height="570"
-                        src={`https://www.youtube.com/embed/${movieDetails?.videos?.results[0]?.key}`}
+                        src={`https://www.youtube.com/embed/${videoKey?.key == "" ?videoKey?.key:videoKeyTv?.key}`}
                         title="YouTube video player"
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen={true}
                     ></iframe>
                 </div>
                 <p className="text-light" style={{ marginLeft: "20px" }}>{movieDetails.overview}</p>
