@@ -1,12 +1,10 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // import { Container, Row, Col } from 'react-bootstrap';
-import Home from "./screens/Home";
-import SearchMovie from "./screens/SearchMovie";
-import MovieDetails from "./screens/MovieDetails";
-import MoviePlayer from "./screens/MoviePlayer";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Home from "./screens/Home/Home";
+import Search from "./screens/Search/Search";
+import Details from "./screens/Details/Details";
+import Player from "./screens/Player/Player";
 import ActiveDeactiveAccount from './screens/ActiveDeactiveAccount';
 import 'bootstrap/dist/css/bootstrap.min.css';
 

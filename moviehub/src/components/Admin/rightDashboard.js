@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import UserCard from './UserCard'
-import "../css/RightDashboard.css";
+import "../Admin/RightDashboard.css";
 
 function RightDashboard() {
   const [users, setUser] = useState([])
