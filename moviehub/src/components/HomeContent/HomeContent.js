@@ -6,9 +6,13 @@ import './HomeContent.css';
 import { Link } from 'react-router-dom';
 
 const HomeContent = () => {
+    //get set trending movies
     const [popularMovies, setPopularMovies] = useState([]);
+    //get set new movies
     const [newMovies, setNewMovies] = useState([]);
+    //get set new serires
     const [newSeries, setNewSeries] = useState([]);
+    //get set search query
     const [searchQuery, setSearchQuery] = useState('');
 
     //get today date format
@@ -75,13 +79,13 @@ const HomeContent = () => {
         }
     };
 
+    //handle search form
     const handleSearch = (e) => {
         e.preventDefault();
         if (searchQuery.trim() !== '') {
             window.location.href = `/search/${searchQuery}`;
         }
     };
-
 
 
     return (
@@ -151,6 +155,9 @@ const HomeContent = () => {
                         }
                     </Carousel>
                     {/* popular movies carousel end  */}
+
+                    <hr></hr>
+
                     {/* Popular Movies end * */}
 
                     <br></br>
@@ -192,9 +199,7 @@ const HomeContent = () => {
                     </Row>
                     {/* New Movies end */}
 
-
-
-
+                    <hr></hr>
 
                     {/* New series start */}
                     <br></br>
@@ -231,10 +236,6 @@ const HomeContent = () => {
                         ))}
                     </Row>
                     {/* New series end */}
-
-
-
-
                 </div>
             </section>
         </div>

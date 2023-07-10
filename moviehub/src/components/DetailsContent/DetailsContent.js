@@ -3,8 +3,11 @@ import "./DetailsContent.css";
 import { useParams, Link } from 'react-router-dom';
 
 function DetailsContent({ movieId }) {
+    //get set movie
     const [movie, setMovie] = useState(null);
+    //get set loading
     const [isLoading, setIsLoading] = useState(true);
+    //get set casts
     const [casts, setCasts] = useState(null);
 
     // api key to the movie database
@@ -16,6 +19,7 @@ function DetailsContent({ movieId }) {
         }
     };
 
+    //get movies list
     useEffect(() => {
         const fetchMovie = async () => {
             try {
@@ -32,6 +36,7 @@ function DetailsContent({ movieId }) {
     }, [movieId]);
 
 
+    //get casts list
     useEffect(() => {
         const fetchMovieCredits = async () => {
             try {
@@ -46,21 +51,36 @@ function DetailsContent({ movieId }) {
         fetchMovieCredits();
     }, [movieId]);
 
+    //if is Loading = true --> show loading
     if (isLoading) {
-        return <div>Loading...</div>;
+        return (
+            <div className="content-container" style={{ height: "500px" }}>
+                <div>Loading...</div>
+            </div >
+
+        );
     }
 
+    //if movie not found --> show movie not found
     if (!movie) {
-        return <div>Movie not found.</div>;
+        return (
+            <div className="content-container" style={{ height: "500px" }}>
+                <div>Movie not found.</div>;
+            </div >
+        );
     }
 
     return (
         <div className="content-container">
             <div className="movie-card">
                 <div className="container">
+                    {/* Link to player start  */}
                     <Link to={`/player/${movieId}`}>
                         <img style={{ width: "200px" }} src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt="" className="cover" />
                     </Link>
+                    {/* Link to player stop */}
+
+                    {/* Backdrop start */}
                     <div className="hero" style={{
                         background: `url(https://image.tmdb.org/t/p/w500${movie.backdrop_path})`,
                         backgroundSize: "100%",
@@ -86,7 +106,11 @@ function DetailsContent({ movieId }) {
                             <span className="likes">{movie.popularity}</span>
                         </div>
                     </div>
+                    {/* back drop end */}
+
                     <div className="description row">
+                        {/* genres start */}
+
                         <div className="column1">
                             {
                                 movie.genres.map((genre) => (
@@ -94,10 +118,14 @@ function DetailsContent({ movieId }) {
                                 ))
                             }
                         </div>
+                        {/* genres end */}
+
+                        {/* description and cast start */}
                         <div className="column2">
                             <h3 className="text-warning">Description</h3>
                             <p>{movie.overview}</p>
                             <div className="avatars">
+                                <hr></hr>
                                 <h3 className="text-warning">Casts</h3>
                                 {
                                     casts ? (
@@ -114,11 +142,12 @@ function DetailsContent({ movieId }) {
                                             </a>
                                         ))
                                     ) : (
-                                            <div>No cast members available.</div>
-                                        )
+                                        <div>No cast members available.</div>
+                                    )
                                 }
                             </div>
                         </div>
+                        {/* description and cast end */}
                     </div>
                 </div>
             </div>

@@ -4,26 +4,50 @@ import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import './SearchContent.css';
 
 const SearchContent = ({ query }) => {
+  //get set movies list
   const [movies, setMovies] = useState([]);
+  //get set page
   const [page, setPage] = useState(1);
+  //get set search query
   const [searchQuery, setSearchQuery] = useState('');
+  //get set genres list
   const [genres, setGenres] = useState([]);
+  //get set selected genre
   const [selectedGenre, setSelectedGenre] = useState('');
+  //get set selected rating
+  const [selectedRating, setSelectedRating] = useState('');
+  //get set selected release date
+  const [selectedReleaseDate, setSelectedReleaseDate] = useState('');
 
+  //increase page
   const handleIncreasePage = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
+
+  //decrease page
   const handleDecreasePage = () => {
     if (page > 1) {
       setPage((prevPage) => prevPage - 1);
     }
   };
 
+  //handle genre change
   const handleGenreChange = (event) => {
     setSelectedGenre(event.target.value);
   };
 
+  //handle rating change
+  const handleRatingChange = (event) => {
+    setSelectedRating(event.target.value);
+  };
+
+  //handle release date change
+  const handleReleaseDateChange = (event) => {
+    setSelectedReleaseDate(event.target.value);
+  };
+
+  //api key
   const options = {
     method: 'GET',
     headers: {
@@ -33,6 +57,8 @@ const SearchContent = ({ query }) => {
     },
   };
 
+
+  //get movies list
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -48,6 +74,8 @@ const SearchContent = ({ query }) => {
     fetchMovies();
   }, [query, page]);
 
+
+  //get genres list
   useEffect(() => {
     const fetchGenres = async () => {
       try {
@@ -65,6 +93,8 @@ const SearchContent = ({ query }) => {
     fetchGenres();
   }, []);
 
+
+  //filter movies by genre
   const filteredMovies = selectedGenre
     ? movies.filter((movie) => movie.genre_ids.includes(parseInt(selectedGenre)))
     : movies;
@@ -109,20 +139,43 @@ const SearchContent = ({ query }) => {
 
       {/* filter start */}
       <div className="filter-container">
-        <Form style={{width:"400px", margin:"10px"}}>
-          <Form.Group controlId="genreSelect">
-            <Form.Label>Genre:</Form.Label>
-            <Form.Control as="select" value={selectedGenre} onChange={handleGenreChange}>
-              <option value="">All Genres</option>
-              {genres.map((genre) => (
-                <option key={genre.id} value={genre.id}>
-                  {genre.name}
-                </option>
-              ))}
-            </Form.Control>
-          </Form.Group>
-        </Form>
+        <Row>
+          {/* filter genre start */}
+          <Col md={3}>
+            <Form style={{ width: "300px", margin: "10px" }}>
+              <Form.Group controlId="genreSelect">
+                <Form.Label>Genre:</Form.Label>
+                <Form.Control as="select" value={selectedGenre} onChange={handleGenreChange}>
+                  <option value="">All Genres</option>
+                  {genres.map((genre) => (
+                    <option key={genre.id} value={genre.id}>
+                      {genre.name}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+            </Form>
+          </Col>
+          {/* filter genre end */}
+
+          {/* filter rating start */}
+          <Col md={3}>
+            
+          </Col>
+          {/* filter rating end */}
+          <Col md={3}>
+
+          </Col>
+
+          {/* filter release_date start */}
+          <Col md={3}>
+
+          </Col>
+          {/* filter release_date end */}
+
+        </Row>
       </div>
+
       {/* filter end */}
 
       {/* movies start */}
