@@ -108,7 +108,7 @@ const TVShowsContent = () => {
 
             {/* search start */}
             <div className='search-container'>
-                <h1 style={{ fontWeight: 'bold' }}>Welcome to Movie<span className='text-warning'>Hub</span></h1>
+                <h1 style={{ fontWeight: 'bold' }}>Welcome to MOVIE<span className='text-warning'>HUB</span></h1>
                 <h3 style={{ fontWeight: 'bold' }}>Millions of movies, TV shows and people to discover. Explore now.</h3>
                 <br></br>
                 <form className="form" style={{ width: '80%' }} onSubmit={handleSearch}>
