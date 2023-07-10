@@ -1,0 +1,50 @@
+.nav-link-text {
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link-text:hover {
+    color: #FFC107;
+}
+
+.button-left {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.navbar-background {
+    background-color: #0e1f23;
+    color: white
+}
+
+.form-background {
+    background-color: #081215;
+}
+
+input[type="text"],
+textarea {
+
+    background-color: #081215;
+
+}
+
+.footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer a:hover,
+.footer a:focus {
+    outline: none;
+    text-decoration: underline;
+}
+footer{
+    padding: 20px;
+}

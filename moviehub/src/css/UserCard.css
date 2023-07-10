@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  width: 22%;
+  padding: 10px;
+  margin: 15px 10px;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  width: calc(25% - 20px);
+  
+}
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto; 
+  h4 {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    word-spacing: 3px;
+  }
+  b {
+    color: #f9004d;
+    margin-bottom: 4px;
+  }
+}
+.active {
+  color: #ffc107;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  &:hover {
+    color: rgb(126, 122, 123);
+    transform: scale(1.1);
+  }
+}
+
+.inactive {
+  color: #212529;
+  font-weight: bold;
+  cursor: pointer;
+}

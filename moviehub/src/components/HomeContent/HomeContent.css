@@ -1,0 +1,65 @@
+.home-content-container {
+  position: relative;
+  /* background-image: url("/public/assets/img/Background.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed; */
+  backdrop-filter: blur(100px);
+  background-color: #00192e;
+  color: #fff;
+}
+
+.search-container {
+  padding: 80px;
+  height: 300px;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/public/assets/img/SearchContainerBackground.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.search-bar {
+  display: flex;
+  width: 100%;
+  max-width: 700px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #333;
+  color: #fff;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-button {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.search-button:hover {
+  background-color: #0069d9;
+}
+
+
+.newMovie {
+  background-image: url("/public/assets/img/NewMoviesBackground\ copy.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

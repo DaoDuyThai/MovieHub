@@ -1,0 +1,26 @@
+.nav-link-text {
+    font-size: 18px; /* Set the initial font size */
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link-text:hover {
+    color: #FFC107;
+     /* Set the increased font size on hover */
+}
+.button-left{
+    font-weight: bold;
+    margin-left: 10px;
+}
+.navbar-background{
+    background-color: #0e1f23;
+}
+.form-background{
+    background-color: #081215;
+}
+
+input[type="text"], textarea {
+
+    background-color : #081215; 
+  
+  }
