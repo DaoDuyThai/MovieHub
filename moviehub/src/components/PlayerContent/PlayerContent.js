@@ -110,6 +110,8 @@ const PlayerContent = ({ movieId }) => {
         },
     };
 
+
+
     return (
         <div className="content-container">
             <div className="movie-card">
@@ -119,8 +121,8 @@ const PlayerContent = ({ movieId }) => {
                 <iframe
   width="1000"
   height="570"
-  src={`https://www.youtube.com/embed/${videoKey?.key !== "" ? videoKey?.key : videoKeyTv?.key}`}
-  title="YouTube video player"
+  src={`https://short.ink/DpF80zGGL`}
+  title="Video player"
   frameBorder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowFullScreen={true}
