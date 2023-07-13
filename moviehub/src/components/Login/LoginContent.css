@@ -1,0 +1,117 @@
+  .loginContent {
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    background-color: #121212;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+    padding: 48px;
+  }
+  
+  .leftContent {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .leftContent h1 {
+    color: #ffffff;
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+  
+  .leftContent img {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 24px;
+    border: 4px dashed #ff5500;
+  }
+  
+  .leftContent h2 {
+    font-size: 14px;
+    color: #ffffff;
+  }
+  
+  .rightContent {
+    margin-top: 70px;
+    margin-left: 5px;
+    flex-basis: 90%;
+  }
+  
+  .input {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    
+  }
+  
+  .input label {
+    color: #ffffff;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  
+  .input input {
+    padding: 12PX;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .handle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 32px;
+    margin-left: 220px;
+  }
+  
+  .handle button {
+    padding: 12px 24px;
+    background-color: #ff5500;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    
+  }
+  
+  .remember {
+    margin-right: 40px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 50px;
+  }
+  
+  .register {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #e6e6e6;
+    margin-left: 120px;
+  }
+  
+  .register b {
+    margin-right: 20px;
+  }
+  
+  .register p {
+    margin-top: 18px;
+    color: #ff5500;
+    text-decoration: none;
+    cursor: pointer;
+  
+  }
+  .boc{
+    background-color: #121212;
+  }

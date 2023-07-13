@@ -1,0 +1,131 @@
+.registerContent {
+  background-color: #121212;
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.leftRegister {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-left: 50px;
+  margin-top: -70px;
+}
+
+.leftRegister h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+.leftRegister img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+}
+
+.leftRegister h2 {
+  color: #ffffff;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 32px;
+
+}
+
+.rightContent {
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 50%;
+  margin-right: 50px;
+}
+
+.rightContent .input {
+  margin-bottom: 32px;
+  width: 100%;
+}
+
+.rightContent label {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.rightContent input[type="text"],
+.rightContent input[type="email"],
+.rightContent input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  font-size: 16px;
+  width: 100%;
+}
+
+.rightContent input[type="radio"] {
+  margin-right: 8px;
+}
+
+.rightContent .genderdetail p {
+  display: inline-block;
+  margin-left: 4px;
+  color: #ffffff;
+}
+
+.rightContent .handle button {
+  background-color: #ff5500;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+  margin-left: -90px;
+
+}
+
+.rightContent .handle button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rightContent .login {
+  margin-top: 32px;
+  font-size: 14px;
+  color: #ffffff;
+  margin-left: 95px;
+}
+
+.rightContent .login b {
+  font-weight: bold;
+}
+
+.rightContent .login p {
+  color: #ff5500;
+  display: inline-block;
+  margin-left: 4px;
+  cursor: pointer;
+
+}
+
+.rightContent .signup:hover {
+  text-decoration: underline;
+}
+
+.res {
+  background-color: #121212;
+}

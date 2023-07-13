@@ -118,15 +118,15 @@ const PlayerContent = ({ movieId }) => {
                 <h2 className="text-warning" style={{ marginLeft: "20px", fontWeight: "bold" }}>{movieDetails.original_title}</h2>
                 <p style={{ marginLeft: "20px" }}>Have a nice Netflix and Chill!!!</p>
                 <div className="container" style={{ textAlign: "center" }}>
-                <iframe
-  width="1000"
-  height="570"
-  src={`https://short.ink/DpF80zGGL`}
-  title="Video player"
-  frameBorder="0"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowFullScreen={true}
-></iframe>
+                    <iframe
+                        width="1000"
+                        height="570"
+                        src={`https://short.ink/DpF80zGGL`}
+                        title="Video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen={true}
+                    ></iframe>
                 </div>
                 <p className="text-light" style={{ marginLeft: "20px" }}>{movieDetails.overview}</p>
             </div>

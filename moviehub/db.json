@@ -71,6 +71,24 @@
       "gender": "Nữ",
       "role": 0,
       "active": true
+    },
+    {
+      "id": 9,
+      "name": "Duy Thai",
+      "email": "hello",
+      "password": "123",
+      "gender": "Male",
+      "role": 1,
+      "active": true
+    },
+    {
+      "id": 10,
+      "name": "121212",
+      "email": "Hello",
+      "password": "12121",
+      "gender": "Male",
+      "role": 1,
+      "active": true
     }
   ]
 }
