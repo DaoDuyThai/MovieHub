@@ -15,6 +15,8 @@ import UserProfile from './screens/UserProfile/UserProfile';
 import EditProfile from './screens/EditProfile/EditProfile'
 import Login from './screens/Login/Login';
 import Register from './screens/Register/Register';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   // const [account, setAccount] = useState();
@@ -40,7 +42,7 @@ function App() {
           <Route path="/admin" element={<ActiveDeactiveAccount />} />
 
         </Routes>
-       
+       <ToastContainer/>
       </BrowserRouter>
 
 
