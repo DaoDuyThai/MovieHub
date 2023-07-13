@@ -4,3 +4,10 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
+
+.con{
+    background-image: url("/public/assets/img/StaryBackground.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}

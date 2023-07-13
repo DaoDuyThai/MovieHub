@@ -55,7 +55,7 @@ const Header = () => {
             <Link className="nav-link" to="/">
               <span className="nav-link-text">About us</span>
             </Link>
-            {role === '1' ? (<>
+            {role === '1' ? username && (<>
               <Link className="nav-link" to="/admin">
                 <span className="nav-link-text">Admin</span>
               </Link>
