@@ -7,13 +7,24 @@ import './Header.css'; // Import custom CSS file for styling
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
+  const [isProfileOpen, setProfileOpen] = useState(false);
+  const [id, setId] = useState('');
+  const [role, setRole] = useState('');
+
+  const handleToggle = () => {
+    setProfileOpen(!isProfileOpen);
+  };
 
   useEffect(() => {
     const loggedInStatus = sessionStorage.getItem('isLoggedIn');
     const storedUsername = sessionStorage.getItem('username');
+    const id = sessionStorage.getItem('id');
+    const role = sessionStorage.getItem('role');
     if (loggedInStatus === 'true' && storedUsername) {
       setIsLoggedIn(true);
       setUsername(storedUsername);
+      setId(id);
+      setRole(role);
     }
   }, []);
 
@@ -22,6 +33,8 @@ const Header = () => {
     setUsername('');
     sessionStorage.removeItem('isLoggedIn');
     sessionStorage.removeItem('username');
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('role');
   };
 
   return (
@@ -42,14 +55,41 @@ const Header = () => {
             <Link className="nav-link" to="/">
               <span className="nav-link-text">About us</span>
             </Link>
-            <Link className="nav-link" to="/admin">
-              <span className="nav-link-text">Admin</span>
-            </Link>
+            {role === '1' ? (<>
+              <Link className="nav-link" to="/admin">
+                <span className="nav-link-text">Admin</span>
+              </Link>
+            </>
+            ) :
+              (<>
+              </>
+              )}
+
           </div>
         </div>
         <div className="d-flex align-items-center">
           {isLoggedIn ? (
-            <p className="text-light m-0 mr-2">Hello, {username}</p>
+            <>
+              <div className="dropdown">
+                <p
+                  className="text-light m-0 mr-2 dropdown-toggle"
+                  onClick={handleToggle}
+                  role="button"
+                >
+                  Hello,<span className='text-warning' style={{ fontWeight: "bold" }}> {username}</span>
+                </p>
+                <div style={{ backgroundColor: "#125665" }} className={`dropdown-menu${isProfileOpen ? ' show' : ''} text-center`}>
+                  <img style={{ width: "51px", height: "51px", marginTop: "30px" }} className='rounded-circle' src={`/assets/img/users/${id}.png`}></img>
+                  <p style={{ marginTop: "10px" }} className='text-warning'>{username}</p>
+                  <button style={{ margin: "10px" }} className="btn btn-outline-warning">Profile Settings</button>
+                  <br></br>
+                  <button className=" btn btn-danger button-left" onClick={handleLogout}>Logout</button>
+                </div>
+              </div>
+
+            </>
+
+
           ) : (
             <>
               <Link className="nav-link" to="/login">
@@ -60,11 +100,7 @@ const Header = () => {
               </Link>
             </>
           )}
-          {isLoggedIn && (
-            <button className="btn btn-outline-warning button-left" onClick={handleLogout}>
-              Logout
-            </button>
-          )}
+
         </div>
       </div>
     </nav>

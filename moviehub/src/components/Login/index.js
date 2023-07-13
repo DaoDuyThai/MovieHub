@@ -32,6 +32,8 @@ function LoginContent() {
       setIsUndefined(true);
       sessionStorage.setItem("isLoggedIn", "true");
       sessionStorage.setItem("username", account.name);
+      sessionStorage.setItem("id", account.id);
+      sessionStorage.setItem("role", account.role);
       toast("Login successfully!!");
       window.location.href = "/"; // Redirect to home page
     } else {

@@ -89,6 +89,15 @@
       "gender": "Male",
       "role": 1,
       "active": true
+    },
+    {
+      "id": 11,
+      "name": "Đào Duy Thái",
+      "email": "admin",
+      "password": "123",
+      "gender": "Nam",
+      "role": 1,
+      "active": true
     }
   ]
 }
