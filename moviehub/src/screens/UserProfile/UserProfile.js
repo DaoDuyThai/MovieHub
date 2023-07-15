@@ -1,5 +1,6 @@
 import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
+import UserProfileContent from '../../components/UserProfileContent/UserProfileContent';
 
 const UserProfile = () => {
 
@@ -7,7 +8,7 @@ const UserProfile = () => {
     return (
         <>
             <Header />
-            acsv
+            <UserProfileContent />
             <Footer />
         </>
 

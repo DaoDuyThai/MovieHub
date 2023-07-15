@@ -1,0 +1,59 @@
+.edit-profile-content {
+    background-image: url('/public/assets/img/StaryBackground.jpg');
+    background-size: cover;
+   
+    background-position: center;
+    height: 1000px;
+}
+
+.edit {
+    background-color: rgb(194, 140, 153);
+    border-radius: 20px;
+    padding-left: 200px;
+
+    height: 500px;
+    margin-left: 350px;
+    margin-right: 350px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.edit input{
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.edit .input-paragraph {
+    background-color: rgb(194, 140, 153);
+    color: aliceblue;
+    margin-top: 40px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+    font-size: 20px;
+
+}
+
+.edit .link {
+    color: rgb(50, 50, 50);
+    text-decoration: none;
+    background-color: rgb(67, 198, 163);
+    margin-left: 200px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5PX;
+    padding-top: 5px;
+    border-radius: 10px;
+}
+
+
+
+.edit img {
+    
+    margin-top: 30px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 500px;  
+
+}
