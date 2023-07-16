@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import "./EditProfileContent.css";
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const EditProfileContent = () => {
     const [user, setUser] = useState(null);
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [gender, setGender] = useState('');
-    const history = useHistory();
+    const newUser = user;
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:8000/account`, {
@@ -34,21 +35,13 @@ const EditProfileContent = () => {
     };
 
     const saveProfile = () => {
-        // Gửi yêu cầu POST để cập nhật hồ sơ người dùng
-        fetch(`http://localhost:8000/account`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ user }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            history.push('/userprofile'); // Chuyển hướng về màn hình UserProfile
-          })
-          .catch((error) => console.error('Error:', error));
-      };
+        fetch(`http://localhost:8000/account/${user.id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(newUser),
+        });
+        navigate("/userprofile");
+    };
 
     if (!user) {
         return <div>Loading...</div>;

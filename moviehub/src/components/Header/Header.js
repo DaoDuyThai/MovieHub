@@ -35,8 +35,6 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="d-flex align-items-center">
-                    
-
                     <Link className="nav-link" to="/login">
                         <button className='btn btn-outline-warning button-left'>Sign In</button>
                     </Link>
