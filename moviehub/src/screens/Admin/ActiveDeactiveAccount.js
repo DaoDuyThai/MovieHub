@@ -11,6 +11,22 @@ import { Link } from 'react-router-dom';
 function ActiveDeactiveAccount() {
     const [username, setUsername] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [id, setId] = useState('');
+    const [role, setRole] = useState('');
+    useEffect(() => {
+        const loggedInStatus = sessionStorage.getItem('isLoggedIn');
+        const storedUsername = sessionStorage.getItem('username');
+        const id = sessionStorage.getItem('id');
+        const role = sessionStorage.getItem('role');
+        if (loggedInStatus === 'true' && storedUsername) {
+          setIsLoggedIn(true);
+          setUsername(storedUsername);
+          setId(id);
+          setRole(role);
+        }
+      }, []);
+
+
 
     useEffect(() => {
         const loggedInStatus = sessionStorage.getItem('isLoggedIn');
@@ -26,7 +42,7 @@ function ActiveDeactiveAccount() {
         <>
             <Header />
             <React.Fragment>
-                {setIsLoggedIn == true ? (
+                {isLoggedIn == true && role == 1 ? (
                     <div style={{ display: 'flex' }}>
                         <LeftDashboard />
                         <RightDashboard />
