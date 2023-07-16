@@ -78,7 +78,15 @@ const Header = () => {
                 >
                   Hello,<span className='text-warning' style={{ fontWeight: "bold" }}> {username}</span>
                 </p>
-                <div style={{ backgroundColor: "#125665" }} className={`dropdown-menu${isProfileOpen ? ' show' : ''} text-center`}>
+                <div style={{
+                  position: "absolute",
+                  top: "100%",
+                  backgroundColor: "#125665",
+                  minWidth: "100%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 999,
+                }} className={`dropdown-menu${isProfileOpen ? ' show' : ''} text-center`}>
                   <img style={{ width: "51px", height: "51px", marginTop: "30px" }} className='rounded-circle' src={`/assets/img/users/${id}.png`}></img>
                   <p style={{ marginTop: "10px" }} className='text-warning'>{username}</p>
                   <button style={{ margin: "10px" }} className="btn btn-outline-warning">Profile Settings</button>
