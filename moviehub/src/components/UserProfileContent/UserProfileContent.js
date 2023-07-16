@@ -1,3 +1,5 @@
+
+
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import "./UserProfileContent.css"; // Import file CSS
@@ -6,14 +8,17 @@ const UserProfileContent = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/account`, {
+  
+
+    fetch(`http://localhost:8000/account/${userId}`, {
       method: 'GET'
     })
       .then(response => response.json())
       .then(data => setUser(data))
+      .catch(error => console.error(error));
   }, []);
 
-  if (!user) {
+  if (user === null) {
     return <div>Loading...</div>;
   }
 
