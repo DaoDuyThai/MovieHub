@@ -89,7 +89,9 @@ const Header = () => {
                 }} className={`dropdown-menu${isProfileOpen ? ' show' : ''} text-center`}>
                   <img style={{ width: "51px", height: "51px", marginTop: "30px" }} className='rounded-circle' src={`/assets/img/users/${id}.png`}></img>
                   <p style={{ marginTop: "10px" }} className='text-warning'>{username}</p>
-                  <button style={{ margin: "10px" }} className="btn btn-outline-warning">Profile Settings</button>
+                  <Link to={'/userprofile'}>
+                    <button style={{ margin: "10px" }} className="btn btn-outline-warning">Profile Settings</button>
+                  </Link>
                   <br></br>
                   <button className=" btn btn-danger button-left" onClick={handleLogout}>Logout</button>
                 </div>

@@ -1,0 +1,15 @@
+.home-content-container {
+  position: relative;
+  background-image: url("/public/assets/img/StaryBackground.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  backdrop-filter: blur(100px);
+  background-color: #00192e;
+  color: #fff;
+  min-height: 500px;
+}
+
+.card {
+  background-color: #0d528b;
+}
