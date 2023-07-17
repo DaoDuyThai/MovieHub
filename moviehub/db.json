@@ -15,7 +15,7 @@
       "email": "thanhtra@gmail.com",
       "password": "12345678",
       "gender": "Nữ",
-      "role": 1,
+      "role": 2,
       "active": true
     },
     {
@@ -24,7 +24,7 @@
       "email": "nger@gmail.com",
       "password": "12345678",
       "gender": "Nam",
-      "role": 1,
+      "role": 2,
       "active": true
     },
     {
@@ -33,7 +33,7 @@
       "email": "voki@gmail.com",
       "password": "12345678",
       "gender": "Nữ",
-      "role": 1,
+      "role": 2,
       "active": true
     },
     {
@@ -42,7 +42,7 @@
       "email": "hieu",
       "password": "12345678",
       "gender": "Nam",
-      "role": 0,
+      "role": 1,
       "active": false
     },
     {
@@ -51,7 +51,7 @@
       "email": "tra",
       "password": "12345678",
       "gender": "Nữ",
-      "role": 0,
+      "role": 2,
       "active": true
     },
     {
@@ -60,7 +60,7 @@
       "email": "hung",
       "password": "12345678",
       "gender": "Nam",
-      "role": 0,
+      "role": 2,
       "active": true
     },
     {
@@ -69,7 +69,7 @@
       "email": "tu",
       "password": "12345678",
       "gender": "Nữ",
-      "role": 0,
+      "role": 2,
       "active": true
     },
     {
@@ -96,7 +96,25 @@
       "email": "admin",
       "password": "123",
       "gender": "Nam",
-      "role": 1,
+      "role": 2,
+      "active": true
+    },
+    {
+      "id": 12,
+      "name": "Fuckyou",
+      "email": "fuckyou",
+      "password": "1",
+      "gender": "Male",
+      "role": 2,
+      "active": true
+    },
+    {
+      "id": 13,
+      "name": "12",
+      "email": "a",
+      "password": "a",
+      "gender": "Male",
+      "role": 2,
       "active": true
     }
   ]

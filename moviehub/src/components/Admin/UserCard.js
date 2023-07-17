@@ -23,11 +23,14 @@ function UserCard({ user }) {
 
   return (
     <div className="card">
-      <img
+      <img 
         src={
-          "https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector.jpg"
+          `/assets/img/users/${user.id}.png`
         }
         alt={user.name}
+        onError={(e) => {
+          e.target.src = '/assets/img/users/default.png'; 
+        }}
       />
       <div className="cardContent">
         <h4>{user.name}</h4>

@@ -36,7 +36,7 @@ function RegisterContent() {
             email: mail,
             password: password,
             gender: gender,
-            role: 1,
+            role: 2,
             active: true
           };
           fetch(`http://localhost:8000/account`, {
