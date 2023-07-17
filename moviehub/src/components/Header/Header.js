@@ -84,7 +84,7 @@ const Header = () => {
                   backgroundColor: "#125665",
                   minWidth: "159px",
                   left: "50%",
-                  transform: "translateX(-50%)",
+                  transform: "translateX(-70%)",
                   zIndex: 999,
                 }} className={`dropdown-menu${isProfileOpen ? ' show' : ''} text-center`}>
                   <img style={{ width: "51px", height: "51px", marginTop: "30px" }} className='rounded-circle' src={`/assets/img/users/${id}.png`}></img>
