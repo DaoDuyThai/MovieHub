@@ -82,7 +82,7 @@ const Header = () => {
                   position: "absolute",
                   top: "100%",
                   backgroundColor: "#125665",
-                  minWidth: "100%",
+                  minWidth: "159px",
                   left: "50%",
                   transform: "translateX(-50%)",
                   zIndex: 999,
