@@ -41,6 +41,9 @@ const Header = () => {
                     <Link className="nav-link" to="/signup">
                         <button className='btn btn-outline-warning button-left'>Sign Up</button>
                     </Link>
+                    <Link className="nav-link" to="/userprofile">
+                    <button style={{ margin: "10px" }} className="btn btn-outline-warning">Profile Settings</button>
+                  </Link>
                 </div>
             </div>
         </nav>

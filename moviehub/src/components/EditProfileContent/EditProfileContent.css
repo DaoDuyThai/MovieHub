@@ -1,59 +1,58 @@
 .edit-profile-content {
     background-image: url('/public/assets/img/StaryBackground.jpg');
     background-size: cover;
-   
     background-position: center;
-    height: 1000px;
+    height: 700px;
 }
 
 .edit {
-    background-color: rgb(194, 140, 153);
+    background-color: white;
     border-radius: 20px;
-    padding-left: 200px;
-
-    height: 500px;
-    margin-left: 350px;
-    margin-right: 350px;
+    padding: 40px;
+    max-width: 700px;
+    margin: 0 auto;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
-.edit input{
+
+.edit input {
     background-color: aliceblue;
     border-radius: 10px;
-}
-.edit .input-paragraph {
-    background-color: rgb(194, 140, 153);
-    color: aliceblue;
-    margin-top: 40px;
-    margin-right: 20px;
-    margin-bottom: 30px;
     margin-left: 20px;
-    font-size: 20px;
-
 }
+
+.edit .input-paragraph {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 
 .edit .link {
-    color: rgb(50, 50, 50);
+    color: #fff;
     text-decoration: none;
-    background-color: rgb(67, 198, 163);
-    margin-left: 200px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 5PX;
-    padding-top: 5px;
+    background-color: rgb(68, 133, 237);
+    padding: 8px 20px;
     border-radius: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 250px;
 }
 
-
+.edit button {
+   
+    text-decoration: none;
+    background-color: rgb(18, 244, 172);
+    padding: 5px 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
 
 .edit img {
-    
-    margin-top: 30px;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
-    margin-right: 500px;  
-
+    margin: 0 auto 20px;
+    display: block;
 }

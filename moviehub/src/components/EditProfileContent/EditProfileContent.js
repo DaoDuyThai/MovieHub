@@ -1,40 +1,72 @@
 import { Link } from 'react-router-dom';
 import "./EditProfileContent.css";
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from "react";
 
-const EditProfileContent = ({user}) => {
-    
-    const navigate = useNavigate();
 
-    const saveProfile = () => {
-        const newUser = user;
-        fetch(`http://localhost:8000/account/${user.id}`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newUser),
-        });
-        navigate("/userprofile");
+const EditProfileContent = () => {
+    const [user, setUser] = useState({
+        name: "",
+        email: "",
+        gender: ""
+    });
+    const idU = sessionStorage.getItem('id');
+
+
+    useEffect(() => {
+        fetch(`http://localhost:8000/account/${idU}`)
+            .then(response => response.json())
+            .then(data => setUser(data))
+            .catch(error => console.error(error));
+        console.log(idU);
+    }, [idU]);
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetch(`http://localhost:8000/account/${idU}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log("User updated successfully!");
+                // Do something with the response data if needed
+            })
+            .catch(error => console.error(error));
     };
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setUser(prevUser => ({ ...prevUser, [name]: value }));
+    };
+ 
     return (
         <div className="edit-profile-content">
             <div className="edit">
                 <img src="https://previews.123rf.com/images/triken/triken1608/triken160800029/61320775-male-avatar-profile-picture-default-user-avatar-guest-avatar-simply-human-head-vector.jpg" alt="Avatar" className="ava" />
-                <div className="input-paragraph">
-                    <p>Name :
-                        <input type="text" name="username" value={user.name}  /></p>
-                    <p>Email :
-                        <input type="text" name="useremail" value={user.email}  /></p>
-                    <p>Gender :
-                        <input type="text" name="usergender" value={user.gender} /></p>
-                </div>
-                <div>
-                </div>
+                <form onSubmit={handleSubmit}>
+                    <div className="input-paragraph">
+                        <p>Name :
+                            <input type="text" name="name" value={user.name} onChange={handleChange} /></p>
+                        <p>Email :
+                            <input type="text" name="email" value={user.email} onChange={handleChange} /></p>
+                        <p>Gender :
+                            <input type="text" name="gender" value={user.gender} onChange={handleChange} /></p>
+                    </div>
+                    <button style = {{  }} type="submit">Save</button>
+                </form>
                 <Link className="link" to="/userprofile">
-                    <span onClick={saveProfile}>Save</span>
+                    <span>Cancel</span>
                 </Link>
             </div>
         </div>
     );
 };
 
+
 export default EditProfileContent;
+
