@@ -73,20 +73,11 @@
       "active": true
     },
     {
-      "id": 9,
-      "name": "Duy Thai",
-      "email": "hello",
-      "password": "123",
-      "gender": "Male",
-      "role": 1,
-      "active": true
-    },
-    {
       "id": 10,
-      "name": "121212",
-      "email": "Hello",
+      "name": "Duy Thái ",
+      "email": "hello@gmail.com",
       "password": "12121",
-      "gender": "Male",
+      "gender": "Female",
       "role": 1,
       "active": true
     },
@@ -172,6 +163,12 @@
       "user_id": 9,
       "movie_id": 447365,
       "id": 11
+    },
+    {
+      "content": "Hay lắm",
+      "user_id": 9,
+      "movie_id": 447365,
+      "id": 12
     }
   ]
 }

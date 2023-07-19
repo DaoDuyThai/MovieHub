@@ -19,6 +19,7 @@ function DetailsContent({ movieId }) {
     const [username, setUsername] = useState('');
     const [id, setId] = useState(null);
     const [role, setRole] = useState('');
+    
     const [reviews, setReviews] = useState([]);
     const [accounts, setAccounts] = useState([]);
     const [review, setReview] = useState({});
@@ -216,6 +217,77 @@ function DetailsContent({ movieId }) {
         }));
     };
 
+    // Function to handle editing comment content
+    const handleEditChange = (commentId, content) => {
+        setReviews(prevReviews =>
+            prevReviews.map(review => {
+                if (review.id === commentId) {
+                    return { ...review, content };
+                } else {
+                    return review;
+                }
+            })
+        );
+    };
+
+    // Function to save the edited comment
+    const handleSaveEdit = (commentId) => {
+        const editedReview = reviews.find(review => review.id === commentId);
+        fetch(`http://localhost:8000/reviews/${commentId}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(editedReview)
+        })
+            .then(response => {
+                if (response.ok) {
+                    // Success message or any additional logic after successful edit
+                    console.log('Comment edited successfully!');
+                } else {
+                    throw new Error('Failed to edit comment.');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                // Error handling or notification (toast) for edit failure
+                toast.error('Failed to edit comment.');
+            });
+    };
+
+    // Function to handle comment editing mode
+    const handleEdit = (commentId) => {
+        setReviews(prevReviews =>
+            prevReviews.map(review => {
+                if (review.id === commentId) {
+                    return { ...review, editing: true };
+                } else {
+                    return { ...review, editing: false };
+                }
+            })
+        );
+    };
+
+    // Function to handle deleting a comment
+    const handleDelete = (commentId) => {
+        fetch(`http://localhost:8000/reviews/${commentId}`, {
+            method: 'DELETE',
+            headers: { 'Content-Type': 'application/json' }
+        })
+            .then(response => {
+                if (response.ok) {
+                    setReviews(prevReviews => prevReviews.filter(review => review.id !== commentId));
+                    // Success message or any additional logic after successful delete
+                    console.log('Comment deleted successfully!');
+                } else {
+                    throw new Error('Failed to delete comment.');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                // Error handling or notification (toast) for delete failure
+                toast.error('Failed to delete comment.');
+            });
+    };
+
     return (
         <div className="content-container">
             <div className="movie-card">
@@ -308,17 +380,34 @@ function DetailsContent({ movieId }) {
                             <h2> Comment</h2>
                             {reviews.length > 0 ? reviews.map(rv => (
                                 <div className='col-sm-12' key={rv.id}>
-                                    <span
-                                        style={{ fontWeight: 'bold' }}
-                                        className="col-sm-4"
-                                    >
+                                    <span style={{ fontWeight: 'bold' }} className="col-sm-4">
                                         {accounts.find(a => a.id === rv.user_id)?.name}:
                                     </span>
                                     <span className='col-sm-8'>
-                                        {rv.content}
+                                        {rv.editing ? (
+                                            <>
+                                                <textarea
+                                                    style={{ backgroundColor: "white" }}
+                                                    name="content"
+                                                    value={rv.content || ''}
+                                                    onChange={(e) => handleEditChange(rv.id, e.target.value)}
+                                                />
+                                                <button onClick={() => handleSaveEdit(rv.id)}>Save</button>
+                                            </>
+                                        ) : (
+                                            <>
+                                                {rv.content}
+                                                {isLoggedIn && rv.user_id === id && (
+                                                    <div>
+                                                        <button onClick={() => handleEdit(rv.id)}>Edit</button>
+                                                        <button onClick={() => handleDelete(rv.id)}>Delete</button>
+                                                    </div>
+                                                )}
+                                            </>
+                                        )}
                                     </span>
                                 </div>
-                            )) : <span className='col-sm-12'>No comment</span>}
+                            )) : <span className='col-sm-12'>No comment <button>aaaa</button></span>}
                         </div>
                     </center>
                 ) : (
@@ -327,7 +416,7 @@ function DetailsContent({ movieId }) {
                             <div className='row'>
                                 <h2> Comment of {username}</h2>
                                 <br />
-                                <textarea style={{ backgroundColor: "white" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>                              
+                                <textarea style={{ backgroundColor: "white" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>
                                 <Link to="/login">
                                     <button >Submit</button>
                                 </Link>
