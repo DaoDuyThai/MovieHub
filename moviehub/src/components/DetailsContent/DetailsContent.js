@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./DetailsContent.css";
-import { useParams, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { toast } from 'react-toastify';
 
 function DetailsContent({ movieId }) {
     //get set movie
@@ -13,7 +14,14 @@ function DetailsContent({ movieId }) {
     const [casts, setCasts] = useState(null);
     //get set similar movies
     const [similarMovies, setSimilarMovies] = useState([]);
-
+    //get reviews
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [username, setUsername] = useState('');
+    const [id, setId] = useState(null);
+    const [role, setRole] = useState('');
+    const [reviews, setReviews] = useState([]);
+    const [accounts, setAccounts] = useState([]);
+    const [review, setReview] = useState({});
 
     // api key to the movie database
     const options = {
@@ -23,6 +31,20 @@ function DetailsContent({ movieId }) {
             Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhNTM5MjUzZDY4Y2M4MzAxZjE2ODEzYmNmYjlkYTExOSIsInN1YiI6IjY0OGFjMzk4MjYzNDYyMDEyZDQ4OTJjNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.s9TqYBthAmgaue_Ex1O_XijAbVTGFpaWz4M1MfnO_6s'
         }
     };
+
+    // get account from sessionStorage
+    useEffect(() => {
+        const loggedInStatus = sessionStorage.getItem('isLoggedIn');
+        const storedUsername = sessionStorage.getItem('username');
+        const id = sessionStorage.getItem('id');
+        const role = sessionStorage.getItem('role');
+        if (loggedInStatus === 'true' && storedUsername) {
+            setIsLoggedIn(true);
+            setUsername(storedUsername);
+            setId(id);
+            setRole(role);
+        }
+    }, []);
 
     //get movies list
     useEffect(() => {
@@ -71,6 +93,32 @@ function DetailsContent({ movieId }) {
         fetchSimilarMovies();
     }, [movieId]);
 
+    //get reviews
+    useEffect(() => {
+        fetch(`http://localhost:8000/reviews?movie_id=${movieId}`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(response => response.json())
+            .then(reviews => {
+                setReviews(reviews)
+            })
+
+    }, [movieId])
+
+    //get account 
+    useEffect(() => {
+        fetch(`http://localhost:8000/account`, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+        })
+            .then(response => response.json())
+            .then(accounts => {
+                setAccounts(accounts)
+            })
+
+    }, [movieId])
+
     //if is Loading = true --> show loading
     if (isLoading) {
         return (
@@ -110,6 +158,63 @@ function DetailsContent({ movieId }) {
         },
     };
 
+    // comments
+    const handleAdd = () => {
+        if (checkEmpty(review?.content)) {
+            let method = "";
+            let url = ""
+            const newReview = {
+                ...review,
+                user_id: parseInt(id),
+                movie_id: parseInt(movieId),
+            }
+            const currentReview = reviews.find(rv => rv.user_id === id)
+
+            if (currentReview === undefined) {
+                method = "POST"
+                url = ""
+                setReviews([...reviews, newReview]);
+                console.log(newReview);
+            } else {
+                method = "PUT"
+                url = `/${review.id}`
+                const newReviews = reviews.map(rv => {
+                    if (rv.id !== currentReview.id) {
+                        return rv
+                    } else {
+                        return newReview
+                    }
+                })
+                setReviews(newReviews)
+            }
+            fetch(`http://localhost:8000/reviews${url}`, {
+                method: method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newReview)
+            })
+        }
+    }
+
+    // check comment 
+    const checkEmpty = (...param) => {
+        for (let index = 0; index < param.length; index++) {
+            const element = param[index];
+            if (element === undefined || element.trim() === '') {
+                toast("Bình luận không được để trống.")
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // post comment
+    const handleChange = (e) => {
+        const { value, name } = e.target;
+        setReview(prevReview => ({
+            ...prevReview,
+            [name]: value
+        }));
+    };
 
     return (
         <div className="content-container">
@@ -190,6 +295,62 @@ function DetailsContent({ movieId }) {
             </div>
 
             <div className="movie-card" style={{ padding: "20px" }}>
+                {/* comment start */}
+                {isLoggedIn == true ? (
+                    <center>
+                        <div className="column2">
+                            <div className='row'>
+                                <h2> Comment of {username}</h2>
+                                <br />
+                                <textarea style={{ backgroundColor: "white" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>
+                                <button onClick={() => handleAdd()} >Submit</button>
+                            </div>
+                            <h2> Comment</h2>
+                            {reviews.length > 0 ? reviews.map(rv => (
+                                <div className='col-sm-12' key={rv.id}>
+                                    <span
+                                        style={{ fontWeight: 'bold' }}
+                                        className="col-sm-4"
+                                    >
+                                        {accounts.find(a => a.id === rv.user_id)?.name}:
+                                    </span>
+                                    <span className='col-sm-8'>
+                                        {rv.content}
+                                    </span>
+                                </div>
+                            )) : <span className='col-sm-12'>No comment</span>}
+                        </div>
+                    </center>
+                ) : (
+                    <>
+                        <div className="column2">
+                            <div className='row'>
+                                <h2> Comment of {username}</h2>
+                                <br />
+                                <textarea style={{ backgroundColor: "white" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>                              
+                                <Link to="/login">
+                                    <button >Submit</button>
+                                </Link>
+                            </div>
+                            <h2> Comment</h2>
+                            {reviews.length > 0 ? reviews.map(rv => (
+                                <div className='col-sm-12' key={rv.id}>
+                                    <span
+                                        style={{ fontWeight: 'bold' }}
+                                        className="col-sm-4"
+                                    >
+                                        {accounts.find(a => a.id === rv.user_id)?.name}:
+                                    </span>
+                                    <span className='col-sm-8'>
+                                        {rv.content}
+                                    </span>
+                                </div>
+                            )) : <span className='col-sm-12'>No comment</span>}
+                        </div>
+                    </>
+                )}
+
+                {/* comment end */}
                 <h2 className="text-warning">Maybe you're also interested</h2>
                 <Carousel responsive={responsive}>
                     {similarMovies.map((movie) => (

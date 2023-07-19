@@ -3,7 +3,7 @@ import "./RegisterContent.css";
 import { Link, useNavigate } from "react-router-dom";
 // import { AccountContext } from "../../App"; 
 import { toast } from "react-toastify";
-import 
+
 function RegisterContent() {
     const [mail, setMail] = useState("");
     const [password, setPassword] = useState("");

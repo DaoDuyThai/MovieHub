@@ -117,5 +117,61 @@
       "role": 2,
       "active": true
     }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "content": "hay ",
+      "user_id": 1,
+      "movie_id": 447365
+    },
+    {
+      "id": 2,
+      "content": "Phim dở ẹc",
+      "user_id": 1,
+      "movie_id": 447365
+    },
+    {
+      "id": 3,
+      "content": "Tạm được",
+      "user_id": 2,
+      "movie_id": 447365
+    },
+    {
+      "id": 4,
+      "content": "Đoạn đốt going merry cảm động quá :(",
+      "user_id": 3,
+      "movie_id": 447365
+    },
+    {
+      "id": 5,
+      "content": "Tàm tạm",
+      "user_id": 4,
+      "movie_id": 447365
+    },
+    {
+      "content": "a",
+      "user_id": 2,
+      "movie_id": 447365,
+      "id": 8
+    },
+    {
+      "content": "anh test cái",
+      "user_id": 2,
+      "movie_id": 447365,
+      "id": 9
+    },
+    {
+      "content": "lên chưa ta",
+      "user_id": 1,
+      "movie_id": 447365,
+      "id": 10
+    },
+    {
+      "content": "Hay",
+      "user_id": 9,
+      "movie_id": 447365,
+      "id": 11
+    }
   ]
 }
