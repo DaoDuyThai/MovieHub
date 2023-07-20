@@ -57,6 +57,7 @@ function LoginContent() {
               <input
                 placeholder="Enter mail address "
                 id="mail"
+                type="email"
                 onChange={(e) => setMail(e.target.value)}
               />
             </div>

@@ -112,17 +112,17 @@ const UserProfileContent = () => {
                                                 // Render the form with editable fields
                                                 <Form onSubmit={handleFormSubmit}>
                                                     <Form.Group controlId='formName'>
-                                                        <Form.Label>Name</Form.Label>
-                                                        <Form.Control type='text' name='name' defaultValue={user.name} required />
+                                                        <Form.Label className='text-warning'>Name</Form.Label>
+                                                        <Form.Control type='text' name='name' style={{backgroundColor: "white"}} defaultValue={user.name} required />
                                                     </Form.Group>
 
                                                     <Form.Group controlId='formEmail'>
-                                                        <Form.Label>Email</Form.Label>
+                                                        <Form.Label className='text-warning' >Email</Form.Label>
                                                         <Form.Control type='email' name='email' defaultValue={user.email} required />
                                                     </Form.Group>
 
                                                     <Form.Group controlId='formGender'>
-                                                        <Form.Label>Gender</Form.Label>
+                                                        <Form.Label className='text-warning'>Gender</Form.Label>
                                                         <div>
                                                             <Form.Check
                                                                 type='radio'
@@ -131,7 +131,7 @@ const UserProfileContent = () => {
                                                                 label='Male'
                                                                 value='Male'
                                                                 defaultChecked={user.gender === 'Male'}
-                                                                required
+                                                                required className='text-light'
                                                             />
                                                             <Form.Check
                                                                 type='radio'
@@ -140,7 +140,7 @@ const UserProfileContent = () => {
                                                                 label='Female'
                                                                 value='Female'
                                                                 defaultChecked={user.gender === 'Female'}
-                                                                required
+                                                                required className='text-light'
                                                             />
                                                         </div>
                                                     </Form.Group>

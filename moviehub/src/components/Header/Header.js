@@ -35,6 +35,7 @@ const Header = () => {
     sessionStorage.removeItem('username');
     sessionStorage.removeItem('id');
     sessionStorage.removeItem('role');
+    window.location.reload();
   };
 
   return (

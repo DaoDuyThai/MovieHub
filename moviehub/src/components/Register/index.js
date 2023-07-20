@@ -5,60 +5,60 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 function RegisterContent() {
-    const [mail, setMail] = useState("");
-    const [password, setPassword] = useState("");
-    const [fullname, setFullname] = useState("");
-    const [gender, setGender] = useState("Male");
-    const [accounts, setAccounts] = useState([]);
-    // const { setAccount } = useContext(AccountContext);
-    const [isExist, setIsExist] = useState(false);
-  
-    const navigate = useNavigate();
-  
-    useEffect(() => {
-      fetch(`http://localhost:8000/account`, {
-        method: "GET",
-      })
-        .then((response) => response.json())
-        .then((data) => setAccounts(data));
-    }, []);
-  
-    const handleRegister = () => {
-      if (mail !== "" && password !== "" && fullname !== "") {
-        const valid = accounts.findIndex((e) => e.email === mail);
-        if (valid !== -1) {
-          setIsExist(true);
-          toast(`Email ${mail} is Exist!!!`)
-        } else {
-          const newId = accounts[accounts.length - 1].id + 1;
-          const newAccount = {
-            id: newId,
-            name: fullname,
-            email: mail,
-            password: password,
-            gender: gender,
-            role: 2,
-            active: true
-          };
-          fetch(`http://localhost:8000/account`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(newAccount),
-          });
-          // setAccount(newAccount);
-          navigate("/");
-          toast('Sign Up Successfully!!!')
-        }
-      }else{
-        toast('One More Information is Blank!!!')
+  const [mail, setMail] = useState("");
+  const [password, setPassword] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [gender, setGender] = useState("Male");
+  const [accounts, setAccounts] = useState([]);
+  // const { setAccount } = useContext(AccountContext);
+  const [isExist, setIsExist] = useState(false);
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/account`, {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => setAccounts(data));
+  }, []);
+
+  const handleRegister = () => {
+    if (mail !== "" && password !== "" && fullname !== "") {
+      const valid = accounts.findIndex((e) => e.email === mail);
+      if (valid !== -1) {
+        setIsExist(true);
+        toast(`Email ${mail} is Exist!!!`)
+      } else {
+        const newId = accounts[accounts.length - 1].id + 1;
+        const newAccount = {
+          id: newId,
+          name: fullname,
+          email: mail,
+          password: password,
+          gender: gender,
+          role: 2,
+          active: true
+        };
+        fetch(`http://localhost:8000/account`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newAccount),
+        });
+        // setAccount(newAccount);
+        navigate("/");
+        toast('Sign Up Successfully!!!')
       }
-    };
-  
-    return (
-      <div className="res">
+    } else {
+      toast('One More Information is Blank!!!')
+    }
+  };
+
+  return (
+    <div className="res">
       <div className="container">
         <div className="registerContent">
-        <div className="leftRegister">
+          <div className="leftRegister">
             <h1>Sign Up</h1>
             <img src="https://hacoled.com/wp-content/uploads/2022/01/anh-nen-one-piece-3.jpg" alt="" />
             <h2>Privacy policy {"&"} Term of service</h2>
@@ -74,6 +74,7 @@ function RegisterContent() {
               <input
                 placeholder="Enter mail address "
                 id="mail"
+                type="email"
                 style={{
                   borderBottom: isExist === true ? "1px solid #f9004d " : "",
                 }}
@@ -143,12 +144,11 @@ function RegisterContent() {
               </Link>
             </div>
           </div>
-          
+
         </div>
       </div>
-      </div>
-    );
-  }
-  
-  export default RegisterContent;
-  
+    </div>
+  );
+}
+
+export default RegisterContent;

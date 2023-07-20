@@ -2,19 +2,19 @@
   "account": [
     {
       "id": 1,
-      "name": "Nguyễn Trung Hiếu",
+      "name": "Nguyễn Hieu",
       "email": "hieu2224@gmail.com",
       "password": "12345678",
-      "gender": "Nam",
+      "gender": "Male",
       "role": 1,
       "active": true
     },
     {
       "id": 2,
-      "name": "Nguyễn Thanh Trà",
+      "name": " Thanh Trà",
       "email": "thanhtra@gmail.com",
       "password": "12345678",
-      "gender": "Nữ",
+      "gender": "Female",
       "role": 2,
       "active": true
     },
@@ -168,18 +168,6 @@
       "id": 10
     },
     {
-      "content": "Hay",
-      "user_id": 9,
-      "movie_id": 447365,
-      "id": 11
-    },
-    {
-      "content": "Hay lắm",
-      "user_id": 9,
-      "movie_id": 447365,
-      "id": 12
-    },
-    {
       "content": "hello",
       "user_id": 11,
       "movie_id": 667538,
@@ -208,6 +196,60 @@
       "user_id": 14,
       "movie_id": 667538,
       "id": 17
+    },
+    {
+      "content": "Hay\n",
+      "user_id": 1,
+      "movie_id": 199,
+      "id": 18
+    },
+    {
+      "content": "good",
+      "user_id": 1,
+      "movie_id": 667538,
+      "id": 19
+    },
+    {
+      "content": "Phim hay quá\n",
+      "user_id": 11,
+      "movie_id": 475557,
+      "id": 21
+    },
+    {
+      "content": "Phim này đã chạm tới đáy lòng của tôi",
+      "user_id": 11,
+      "movie_id": 475557,
+      "id": 22
+    },
+    {
+      "content": "Tôi đã khóc khi xem phim",
+      "user_id": 11,
+      "movie_id": 475557,
+      "id": 23
+    },
+    {
+      "content": "Hayyyyy!!!!",
+      "user_id": 1,
+      "movie_id": 447365,
+      "id": 24
+    },
+    {
+      "content": "Hayyyyy!!!!",
+      "user_id": 1,
+      "movie_id": 447365,
+      "id": 25
+    },
+    {
+      "content": "Hayyyyy!!!!",
+      "user_id": 1,
+      "movie_id": 447365,
+      "id": 26
+    },
+    {
+      "content": "phim rat hay",
+      "user_id": 2,
+      "movie_id": 667538,
+      "id": 27
     }
   ]
 }

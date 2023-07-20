@@ -372,7 +372,7 @@ function DetailsContent({ movieId }) {
                     <div>
                         <div className="column2">
                             <div className='row'>
-                                <h2 className="text-warning"> Comment of {username}</h2>
+                                <h2 className="text-warning"> Write your comment:</h2>
                                 <br />
                                 <textarea className="search-input text-dark" style={{ backgroundColor: "white", width: "700px" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>
                                 <br></br>
@@ -382,9 +382,10 @@ function DetailsContent({ movieId }) {
                             <h2 style={{ fontWeight: "bold", marginTop: "30px" }} className="text-warning"> Comment</h2>
                             {reviews.length > 0 ? reviews.map(rv => (
                                 <div className='col-sm-12' key={rv.id}>
-                                    <span style={{ fontWeight: 'bold' }} className="col-sm-4">
+                                    <span style={{ fontWeight: 'bold' }} className="text-warning col-sm-4" >
                                         {accounts.find(a => a.id === rv.user_id)?.name}:
                                     </span>
+                                    <br></br>
                                     <span className='col-sm-8'>
                                         {rv.editing ? (
                                             <>
@@ -409,13 +410,12 @@ function DetailsContent({ movieId }) {
                                         )}
                                     </span>
                                 </div>
-                            )) : <span className='col-sm-12'>No comment <button>aaaa</button></span>}
+                            )) : <span className='col-sm-12'>No comment </span>}
                         </div>
                     </div>
                 ) : (
                     <>
                         <div className="column2">
-                            <center>
                                 <div className='row'>
                                     <h2 className="text-warning" style={{fontWeight:"bold"}}> Comment of {username}</h2>
                                     <br />
@@ -424,8 +424,6 @@ function DetailsContent({ movieId }) {
                                         <button className="btn btn-warning" style={{marginTop:"10px"}}>Submit</button>
                                     </Link>
                                 </div>
-                            </center>
-
                             <h2 className="text-warning" style={{fontWeight:"bold"}}> Comments</h2>
                             {reviews.length > 0 ? reviews.map(rv => (
                                 <>
@@ -434,8 +432,8 @@ function DetailsContent({ movieId }) {
                                             style={{ fontWeight: 'bold', color: "white" }}
                                             className="col-sm-4"
                                         >
-                                            <div className="text-warning" >{accounts.find(a => a.id === rv.user_id)?.name}:</div>
-
+                                            <div className="text-warning" >{accounts.find(a => a.id === rv.user_id)?.name}: </div>
+                                            
                                         </span>
                                         <span className='col-sm-8 text-light'>
                                             {rv.content}
