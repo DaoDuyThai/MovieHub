@@ -19,7 +19,7 @@ function DetailsContent({ movieId }) {
     const [username, setUsername] = useState('');
     const [id, setId] = useState(null);
     const [role, setRole] = useState('');
-    
+
     const [reviews, setReviews] = useState([]);
     const [accounts, setAccounts] = useState([]);
     const [review, setReview] = useState({});
@@ -369,15 +369,17 @@ function DetailsContent({ movieId }) {
             <div className="movie-card" style={{ padding: "20px" }}>
                 {/* comment start */}
                 {isLoggedIn == true ? (
-                    <center>
+                    <div>
                         <div className="column2">
                             <div className='row'>
-                                <h2> Comment of {username}</h2>
+                                <h2 className="text-warning"> Comment of {username}</h2>
                                 <br />
-                                <textarea style={{ backgroundColor: "white" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>
-                                <button onClick={() => handleAdd()} >Submit</button>
+                                <textarea className="search-input text-dark" style={{ backgroundColor: "white", width: "700px" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>
+                                <br></br>
+                                <button style={{ marginTop: "25px", width: "100px" }} className="btn btn-warning" onClick={() => handleAdd()} >Submit</button>
                             </div>
-                            <h2> Comment</h2>
+                            <hr></hr>
+                            <h2 style={{ fontWeight: "bold", marginTop: "30px" }} className="text-warning"> Comment</h2>
                             {reviews.length > 0 ? reviews.map(rv => (
                                 <div className='col-sm-12' key={rv.id}>
                                     <span style={{ fontWeight: 'bold' }} className="col-sm-4">
@@ -409,37 +411,47 @@ function DetailsContent({ movieId }) {
                                 </div>
                             )) : <span className='col-sm-12'>No comment <button>aaaa</button></span>}
                         </div>
-                    </center>
+                    </div>
                 ) : (
                     <>
                         <div className="column2">
-                            <div className='row'>
-                                <h2> Comment of {username}</h2>
-                                <br />
-                                <textarea style={{ backgroundColor: "white" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>
-                                <Link to="/login">
-                                    <button >Submit</button>
-                                </Link>
-                            </div>
-                            <h2> Comment</h2>
-                            {reviews.length > 0 ? reviews.map(rv => (
-                                <div className='col-sm-12' key={rv.id}>
-                                    <span
-                                        style={{ fontWeight: 'bold' }}
-                                        className="col-sm-4"
-                                    >
-                                        {accounts.find(a => a.id === rv.user_id)?.name}:
-                                    </span>
-                                    <span className='col-sm-8'>
-                                        {rv.content}
-                                    </span>
+                            <center>
+                                <div className='row'>
+                                    <h2 className="text-warning" style={{fontWeight:"bold"}}> Comment of {username}</h2>
+                                    <br />
+                                    <textarea className="search-input" style={{ backgroundColor: "white", color:"black" }} name="content" value={review.content || ''} onChange={handleChange}></textarea>
+                                    <Link to="/login">
+                                        <button className="btn btn-warning" style={{marginTop:"10px"}}>Submit</button>
+                                    </Link>
                                 </div>
+                            </center>
+
+                            <h2 className="text-warning" style={{fontWeight:"bold"}}> Comments</h2>
+                            {reviews.length > 0 ? reviews.map(rv => (
+                                <>
+                                    <div className='col-sm-12' style={{ marginTop: "10px" }} key={rv.id}>
+                                        <span
+                                            style={{ fontWeight: 'bold', color: "white" }}
+                                            className="col-sm-4"
+                                        >
+                                            <div className="text-warning" >{accounts.find(a => a.id === rv.user_id)?.name}:</div>
+
+                                        </span>
+                                        <span className='col-sm-8 text-light'>
+                                            {rv.content}
+                                        </span>
+
+                                    </div>
+
+                                </>
+
                             )) : <span className='col-sm-12'>No comment</span>}
                         </div>
                     </>
                 )}
 
                 {/* comment end */}
+                <hr></hr>
                 <h2 className="text-warning">Maybe you're also interested</h2>
                 <Carousel responsive={responsive}>
                     {similarMovies.map((movie) => (
