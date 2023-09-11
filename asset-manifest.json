@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/moviehub/static/css/main.948be76c.css",
+    "main.js": "/moviehub/static/js/main.c4bd1760.js",
+    "static/js/787.9d553f5f.chunk.js": "/moviehub/static/js/787.9d553f5f.chunk.js",
+    "static/media/fontawesome-webfont.svg?v=4.7.0": "/moviehub/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg",
+    "static/media/SearchContainerBackground.jpg": "/moviehub/static/media/SearchContainerBackground.82fd375f4d26a2fbddc0.jpg",
+    "static/media/NewMoviesBackground copy.jpg": "/moviehub/static/media/NewMoviesBackground copy.0a31587f2471b96b67f8.jpg",
+    "static/media/fontawesome-webfont.eot": "/moviehub/static/media/fontawesome-webfont.8b43027f47b20503057d.eot",
+    "static/media/fontawesome-webfont.ttf?v=4.7.0": "/moviehub/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf",
+    "static/media/StaryBackground.jpg": "/moviehub/static/media/StaryBackground.31a1cdb9333e3910bb18.jpg",
+    "static/media/fontawesome-webfont.woff?v=4.7.0": "/moviehub/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff",
+    "static/media/fontawesome-webfont.woff2?v=4.7.0": "/moviehub/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2",
+    "static/media/revicons.eot": "/moviehub/static/media/revicons.a77de540a38981833f9e.eot",
+    "static/media/revicons.ttf": "/moviehub/static/media/revicons.57fd05d4ae650374c8de.ttf",
+    "static/media/revicons.woff": "/moviehub/static/media/revicons.e8746a624ed098489406.woff",
+    "index.html": "/moviehub/index.html",
+    "main.948be76c.css.map": "/moviehub/static/css/main.948be76c.css.map",
+    "main.c4bd1760.js.map": "/moviehub/static/js/main.c4bd1760.js.map",
+    "787.9d553f5f.chunk.js.map": "/moviehub/static/js/787.9d553f5f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.948be76c.css",
+    "static/js/main.c4bd1760.js"
+  ]
+}
