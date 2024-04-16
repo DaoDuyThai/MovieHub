@@ -2,6 +2,20 @@
 
 MovieHub is a free movie-watching website built using React. This repository contains the source code and necessary files to run the MovieHub application.
 
+## Screenshots
+
+![Screenshot 1](screenshots/screenshot1.jpeg)
+
+![Screenshot 2](screenshots/screenshot2.jpeg)
+
+![Screenshot 3](screenshots/screenshot3.jpeg)
+
+![Screenshot 4](screenshots/screenshot4.jpeg)
+
+![Screenshot 5](screenshots/screenshot5.jpeg)
+
+![Screenshot 6](screenshots/screenshot6.jpeg)
+
 ## Features
 
 - Browse and search for movies
@@ -55,20 +69,6 @@ Follow the steps below to set up the project:
 
    This command will start the application locally. Open your browser and visit http://localhost:3000 to access MovieHub.
 
-## Deployment
-
-To deploy MovieHub to a production environment, you can follow the steps below:
-
-1. **Build the application:**
-
-    ```bash
-    npm run build
-    ```
-
-2. **Copy the contents of the `build` folder to your web server or hosting provider.**
-
-3. **Configure your web server to serve the MovieHub application.**
-
 ## Contributing
 
 Contributions to MovieHub are always welcome. If you would like to contribute, please follow these steps:
@@ -95,22 +95,27 @@ Contributions to MovieHub are always welcome. If you would like to contribute, p
 5. **Open a pull request and provide a detailed description of your changes.**
 
 Please make sure to adhere to the code style and conventions used in the project.
-
-## License
-
-The MovieHub project is licensed under the MIT License.
-
 ## Acknowledgements
 
 MovieHub makes use of the following open-source libraries and APIs:
 
-- React
-- React Router
-- Axios
-- The Movie Database (TMDB) API
+- The Movie Database (TMDB)
 
 Special thanks to the developers and contributors of these projects for their valuable work.
 
+
+## License
+
+The MovieHub is licensed under the [MIT License.](https://choosealicense.com/licenses/mit/)
 ## Contact
 
-If you have any questions, suggestions, or feedback, please feel free to contact the project maintainer at daoduythai.business@gmail.com.
+If you have any questions, suggestions, or feedback, please feel free to contact the project maintainer at:
+
+[![Portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://portfolio.codewithdt.com/)
+[![Linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/dduythai/)
+[![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white)](https://www.youtube.com/@codewithdt)
+[![Facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/duythai.ddt/)
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white)](https://www.instagram.com/dduy_thai/)
+[![Twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/codewithdt)
+
+ 
