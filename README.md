@@ -38,7 +38,7 @@ Follow the steps below to set up the project:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/DuyThaiddt/MovieHub
+    git clone https://github.com/DaoDuyThai/MovieHub
     ```
 
 2. **Navigate to the project directory:**
